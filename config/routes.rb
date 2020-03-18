@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :addresses,only: [:index, :create, :destroy, :edit, :update]
-  get 'customers' => 'customer#show'
+  get 'customers' => 'customers#show'
   get 'customers/withdraw' => 'customers#withdraw'
   put 'customers/hide' => 'customers#hide'
   get 'customers/edit' => 'customers#edit'
