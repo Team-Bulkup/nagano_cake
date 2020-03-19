@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_064311) do
+ActiveRecord::Schema.define(version: 2020_03_19_083457) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
@@ -101,7 +101,6 @@ ActiveRecord::Schema.define(version: 2020_03_19_064311) do
     t.boolean "is_available", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "catgories_id"
     t.integer "category_id"
   end
 
