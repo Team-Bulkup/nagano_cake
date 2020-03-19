@@ -2,7 +2,9 @@
   <div class="row sign_in-row">
     <div class="col-xs-offset-3 col-xs-6">
       <span class="customer-title">会員の方はこちらからログイン</span>
-
+      <div>
+      <%= flash[:error] %>
+      </div>
       <table class="signin-table">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <tr>
@@ -11,7 +13,7 @@
       </tr>
       <tr>
         <td>パスワード</td>
-        <td><%= f.text_field :password, autofocus: true, class:"form-control, customer-signin_form" %></td>
+        <td><%= f.password_field :password, autofocus: true, class:"form-control, customer-signin_form" %></td>
       </tr>
       </table>
       <div class="forget-password">
