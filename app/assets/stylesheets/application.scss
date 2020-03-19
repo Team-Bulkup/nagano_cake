@@ -95,3 +95,64 @@
 .forget-password{
   text-align: right;
 }
+
+.customer-edit{
+  background-color: #3D8BCD;
+  color: white;
+  width: 100px;
+  margin: 0 10px;
+}
+
+.password-edit{
+  background-color: #3D8BCD;
+  color: white;
+  width: 200px;
+}
+
+.customer-addresses{
+  background-color: #3D8BCD;
+  color: white;
+  width: 150px;
+}
+
+.customer-orders{
+  background-color: #3D8BCD;
+  color: white;
+  width: 150px;
+}
+
+.title{
+  background-color: #eee;
+}
+
+.customer-table{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.customer-table tr{
+  height: 50px;
+}
+
+.order-history{
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.address-index{
+  margin-left: 26px;
+}
+
+.order-index{
+  margin-left: 13px;
+}
+
+.mypage-title{
+  background-color: #eee;
+  font-size: 30px;
+  margin-left: 100px;
+}
+
+.customer-information{
+  margin-top: 30px;
+}
