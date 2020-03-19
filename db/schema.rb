@@ -101,7 +101,6 @@ ActiveRecord::Schema.define(version: 2020_03_17_080216) do
     t.boolean "is_available", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "catgories_id"
   end
 
 end
