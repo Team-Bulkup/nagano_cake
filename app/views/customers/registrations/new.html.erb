@@ -1,29 +1,93 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-7">
+      <span class="customer-title">新規会員登録</span>
+      <table class="signup-table">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <tr>
+          <td>名前</td>
+          <td>(姓)</td>
+          <td width="200", class="customer-name_form">
+          <%= f.text_field :last_name, autofocus: true, class:"customer-signup_form, form-control", id:"last_name" %>
+          </td>
+          <td width="50"></td>
+          <td>(名)</td>
+          <td>
+          <%= f.text_field :first_name, autofocus: true, class:"customer-signup_form, form-control", id:"first_name" %>
+          </td>
+        </tr>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <tr>
+          <td>フリガナ</td>
+          <td>(セイ)</td>
+          <td class="customer-name_form">
+          <%= f.text_field :last_name_kana, autofocus: true, class:"customer-signup_form, form-control", id:"last_name_kana" %>
+          </td>
+          <td width="50"></td>
+          <td>(メイ)</td>
+          <td>
+          <%= f.text_field :first_name_kana, autofocus: true, class:"customer-signup_form, form-control", id:"first_name_kana" %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>メールアドレス</td>
+          <td></td>
+          <td>
+          <%= f.email_field :email, autofocus: true, class:"customer-signup_form, form-control", id:"customer_email" %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>郵便番号(ハイフンなし)</td>
+          <td></td>
+          <td>
+          <%= f.text_field :postcode, autofocus: true, class:"customer-signup_form, form-control", id:"postcode" %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>住所</td>
+          <td></td>
+          <td colspan="4">
+          <%= f.text_field :address, autofocus: true, class:"form-control",id:"address" %>
+          </td>
+        </div>
+
+        <tr>
+          <td>電話番号(ハイフンなし)</td>
+          <td></td>
+          <td>
+          <%= f.text_field :phone_number, autofocus: true, class:"customer-signup_form, form-control", id:"phone_number" %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>パスワード(6文字以上)</td>
+          <td></td>
+          <td>
+          <%= f.password_field :password, autocomplete: "new-password", class:"customer-signup_form, form-control", id:"password" %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>パスワード(確認用)</td>
+          <td></td>
+          <td>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"customer-signup_form, form-control", id:"password_confirmation" %>
+          </td>
+        </tr>
+      </table>
+        <div class="actions">
+          <%= f.submit "新規登録", class:"btn customer-signup active" %>
+        </div>
+          <% end %>
+      <div class="finish-sign_up">
+        <span class="customer-title">既に登録済みの方</span><br>
+        <span class="finish-sign_up-text"><%= link_to "こちら", new_customer_session_path %>からログインしてください。</span>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "customers/shared/links" %>
+</div>

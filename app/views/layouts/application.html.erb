@@ -10,6 +10,7 @@
   </head>
 
   <body>
+
     <div class="main clearfix">
       <h1 class="logo">LOGO</h1>
         <ul class="header-btn">
@@ -27,6 +28,10 @@
 
       <% end %>
 
+
+    <% if flash[:notice] %>
+    <%= flash[:notice] %>
+    <% end %>
 
     <%= yield %>
 

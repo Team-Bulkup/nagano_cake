@@ -1,2 +1,40 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-2">
+      <!-- 下記の記述は後に "render" で取ってくる用 -->
+      <!-- <%= render '/categories/list', book: book %> -->
+
+			<h3>ジャンル検索</h3>
+			<!-- each文使ってジャンル並べる -->
+			<% @categories.each do |category| %>
+			<tr class="">
+				<td><%= category.name %></td>
+			</tr>
+			<% end %>
+		</div>
+		<!-- ジャンルと商品の詳細の間の空白 -->
+		<div class="col-xs-1">
+		</div>
+		<!-- 商品詳細 -->
+		<div class="col-xs-9">
+			<div class="row">
+				<div class="col-xs-4">
+					<%= attachment_image_tag product, :image %>
+				</div>
+				<div class="col-xs-5">
+					<h2><% product.name %></h2>
+					<h2><% product.detail %></h2>
+					<h2><% product.no_tax_price %></h2>
+				</div>
+			</div>
+			<!-- 注文個数はセレクトボタンで生成 -->
+
+			<!-- カートに入れるボタン -->
+			<% link_to "カートに入れる" cart_items, class:"btn add-cart active" %>
+		</div>
+
+
+<!-- セレクトボタンの記述例 -->
+<%= f.select カラム名, [["表示する文字”, "データベースに登録する値”], ["表示する文字”, "データベースに登録する値”]] %>
+
+<%= select_tag :hoge, options_for_select((1..23).to_a) %>
