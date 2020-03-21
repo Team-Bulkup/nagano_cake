@@ -1,3 +1,38 @@
 // Place all the styles related to the addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.address-edit{
+  background-color: #3D8BCD;
+  color: white;
+  width: 100px;
+}
+
+.address-delete{
+  background-color: #FF3333;
+  color: white;
+  width: 100px;
+}
+
+.address-button{
+  text-align: center;
+}
+
+.address-index tr{
+  height: 50px;
+}
+
+.address-form-table{
+  border-collapse: separate;
+  border-spacing: 0px 8px;
+}
+
+.address-create-td{
+  text-align: center;
+}
+
+.address-create{
+  background-color: #58B957;
+  color: white;
+  width: 100px;
+}
