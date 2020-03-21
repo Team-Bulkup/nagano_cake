@@ -1,3 +1,71 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.main{
+	width:100%;
+	height: 100px;
+	background-color:black;
+	color: olive;
+	margin-bottom: 50px;
+}
+
+.clearfix::after{
+	content:"";
+	display: block;
+	clear: both;
+}
+
+.logo{
+	margin-left: 20px;
+	text-align: center;
+	width: 165px;
+	margin-left: 150px;
+	float: left;
+	border: 2px solid black;
+}
+
+.header-btn{
+	margin-top: 30px;
+	margin-right: 100px;
+	float:right;
+}
+
+footer{
+	width: 100%;
+	height: 200px;
+	background-color: black;
+	margin-top: 50px;
+}
+
+
+
+.categories-box{
+	border: 1px solid black;
+}
+
+.categories-seach{
+	border-bottom: 1px solid black;
+}
+
+.categories-manu{
+	padding-bottom: 100px;
+
+}
+
+.top-center-img{
+	width: 600px;
+	height: 300px;
+	background-image: url(top_img.jpg);
+	background-position: center;
+	background-size: cover;
+}
+
+.top-center-text{
+	text-align: center;
+	color: white;
+	padding-top: 80px;
+	background-color: rgba( 0, 0, 0, 0.5);
+	height: 300px;
+}
