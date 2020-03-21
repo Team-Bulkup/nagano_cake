@@ -1,3 +1,108 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+
+.customer-edit{
+  background-color: #3D8BCD;
+  color: white;
+  width: 100px;
+  margin: 0 10px;
+}
+
+.password-edit{
+  background-color: #3D8BCD;
+  color: white;
+  width: 200px;
+}
+
+.customer-addresses{
+  background-color: #3D8BCD;
+  color: white;
+  width: 150px;
+}
+
+.customer-orders{
+  background-color: #3D8BCD;
+  color: white;
+  width: 150px;
+}
+
+
+.customer-table{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.customer-table tr{
+  height: 50px;
+}
+
+.order-history{
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.address-index{
+  margin-left: 26px;
+}
+
+.order-index{
+  margin-left: 13px;
+}
+
+.mypage-title{
+  background-color: #eee;
+  font-size: 30px;
+  margin-left: 100px;
+}
+
+.customer-information{
+  margin-top: 30px;
+}
+
+.withdraw-text{
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.customer-nondelete{
+  background-color: #3D8BCD;
+  color: white;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.customer-delete{
+  background-color: #FF0000;
+  color: white;
+  width: 100px;
+}
+
+.withdraw-button{
+  margin-top: 30px;
+}
+
+.edit-info{
+  margin-top: 50px;
+}
+
+.edit_info-table{
+  border-collapse: separate;
+  border-spacing: 0px 8px;
+  margin-top: 20px;
+}
+
+.customer-update{
+  background-color: #3D8BCD;
+  color: white;
+}
+
+.customer-withdraw{
+  background-color: #DB524C;
+  color: white;
+}
