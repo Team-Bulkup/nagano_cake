@@ -15,9 +15,22 @@ class CustomersController < ApplicationController
     redirect_to root_path
   end
 
-  def edit
+  def edit_info
+    @customer = Customer.find(current_customer.id)
   end
 
   def update
+    @customer = Customer.find(current_customer.id)
+    if @customer.update(customer_params)
+      flash[:notice] = "You have updated customer successfully."
+      redirect_to customers_path(@customer)
+    else
+      render :edit
+    end
+  end
+
+  protected
+  def customer_params
+    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :postcode, :address, :phone_number)
   end
 end
