@@ -16,6 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 *{
   margin: 0;
   padding: 0;
@@ -157,8 +158,6 @@
   margin-top: 30px;
 }
 
-
-
 /*管理者ログイン画面(admin_signup)*/
 .admin-signup{
   background-color: #3D8BCD;
@@ -170,4 +169,3 @@
 .admin_signup_form{
   width: 150px;
 }
-
