@@ -4,80 +4,7 @@
 
 
 
-/*新規登録、ログインのタイトル*/
-.customer-title{
-  background-color: #eee;
-  font-size: 30px;
-}
 
-/*新規登録のフォーム*/
-.customer-signup_form{
-  width: 150px;
-}
-
-/*新規登録、ログインの登録ボタンのdiv*/
-.actions{
-  margin: 20px auto;
-  width: 200px;
-  text-align: center;
-}
-
-/*新規登録ボタン自体のcss*/
-.customer-signup{
-  background-color: #58B957;
-  color: white;
-  width: 100%;
-}
-
-/*新規登録入力のテーブル*/
-.signup-table{
-  border-collapse: separate;
-  border-spacing: 0px 8px;
-}
-
-/*登録済みの方の案内のdiv*/
-.finish-sign_up{
-  margin-top: 20px;
-}
-
-/*登録済みの方の案内の文*/
-.finish-sign_up-text{
- margin: 20px 50px;
-}
-
-/*ログイン情報入力のテーブル*/
-.signin-table{
-  border-collapse: separate;
-  border-spacing: 0px 8px;
-  margin-left: 50px;
-}
-
-/*会員のログインのフォーム*/
-.customer-signin_form{
-  width: 400px;
-}
-
-/*会員のログインボタンのcss*/
-.customer-sign_in{
-  background-color: #3D8BCD;
-  color: white;
-  width: 100%;
-}
-
-/*会員ログイン画面の幅調整*/
-.sign_in-row{
-  margin: 100px 0;
-}
-
-/*新規登録してない方の案内文*/
-.unfinish-sign_in-text{
- margin: 20px 50px;
-}
-
-/*パスワードを忘れた方へのリンク*/
-.forget-password{
-  text-align: right;
-}
 
 .customer-edit{
   background-color: #3D8BCD;
@@ -104,9 +31,6 @@
   width: 150px;
 }
 
-.title{
-  background-color: #eee;
-}
 
 .customer-table{
   margin-top: 20px;

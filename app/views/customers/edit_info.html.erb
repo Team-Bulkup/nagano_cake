@@ -1,19 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-9 edit-info">
-      <span class="customer-title">登録情報編集</span>
+      <span class="all-title">登録情報編集</span>
       <%= form_for(@customer, url: customers_update_path, method: :put) do |f| %>
       <table class="edit_info-table">
         <tr>
           <td>名前</td>
           <td>(姓)</td>
           <td width="200", class="customer-name_form">
-          <%= f.text_field :last_name, autofocus: true, class:"customer-signup_form, form-control", id:"last_name" %>
+            <%= f.text_field :last_name, autofocus: true, class:"customer-signup_form, form-control", id:"last_name" %>
           </td>
           <td width="50"></td>
           <td>(名)</td>
           <td>
-          <%= f.text_field :first_name, autofocus: true, class:"customer-signup_form, form-control", id:"first_name" %>
+            <%= f.text_field :first_name, autofocus: true, class:"customer-signup_form, form-control", id:"first_name" %>
           </td>
         </tr>
 
@@ -21,12 +21,12 @@
           <td>フリガナ</td>
           <td>(セイ)</td>
           <td class="customer-name_form">
-          <%= f.text_field :last_name_kana, autofocus: true, class:"customer-signup_form, form-control", id:"last_name_kana" %>
+            <%= f.text_field :last_name_kana, autofocus: true, class:"customer-signup_form, form-control", id:"last_name_kana" %>
           </td>
           <td width="50"></td>
           <td>(メイ)</td>
           <td>
-          <%= f.text_field :first_name_kana, autofocus: true, class:"customer-signup_form, form-control", id:"first_name_kana" %>
+            <%= f.text_field :first_name_kana, autofocus: true, class:"customer-signup_form, form-control", id:"first_name_kana" %>
           </td>
         </tr>
 
@@ -34,7 +34,7 @@
           <td>メールアドレス</td>
           <td></td>
           <td>
-          <%= f.email_field :email, autofocus: true, class:"customer-signup_form, form-control", id:"customer_email" %>
+            <%= f.email_field :email, autofocus: true, class:"customer-signup_form, form-control", id:"customer_email" %>
           </td>
         </tr>
 
@@ -42,7 +42,7 @@
           <td>郵便番号(ハイフンなし)</td>
           <td></td>
           <td>
-          <%= f.text_field :postcode, autofocus: true, class:"customer-signup_form, form-control", id:"postcode" %>
+            <%= f.text_field :postcode, autofocus: true, class:"customer-signup_form, form-control", id:"postcode" %>
           </td>
         </tr>
 
@@ -50,7 +50,7 @@
           <td>住所</td>
           <td></td>
           <td colspan="4">
-          <%= f.text_field :address, autofocus: true, class:"form-control",id:"address" %>
+            <%= f.text_field :address, autofocus: true, class:"form-control",id:"address" %>
           </td>
         </div>
 
@@ -58,18 +58,18 @@
           <td>電話番号(ハイフンなし)</td>
           <td></td>
           <td>
-          <%= f.text_field :phone_number, autofocus: true, class:"customer-signup_form, form-control", id:"phone_number" %>
+            <%= f.text_field :phone_number, autofocus: true, class:"customer-signup_form, form-control", id:"phone_number" %>
           </td>
         </tr>
       </table>
-        <div class="row">
-          <div class=" col-xs-9 actions">
-            <%= f.submit "編集内容を保存する", class:"btn customer-update active" %>
-          </div>
-          <div class="col-xs-3 actions">
-           <%= link_to "退会する", customers_withdraw_path, class:"btn customer-withdraw active" %>
-          </div>
+      <div class="row">
+        <div class=" col-xs-9 actions">
+          <%= f.submit "編集内容を保存する", class:"btn customer-update active" %>
         </div>
+        <div class="col-xs-3 actions">
+          <%= link_to "退会する", customers_withdraw_path, class:"btn customer-withdraw active" %>
+        </div>
+      </div>
       <% end %>
     </div>
   </div>
