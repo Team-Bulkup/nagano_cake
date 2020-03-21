@@ -17,12 +17,26 @@ class AddressesController < ApplicationController
   end
 
   def destroy
+    @address = Address.find(params[:id])
+    @address.destroy
+    redirect_to addresses_path
   end
 
   def edit
+    @address = Address.find(params[:id])
+    if @address.customer_id != current_customer.id
+      redirect_to customers_path(current_customer)
+    end
   end
 
   def update
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
+      flash[:notice]="登録先を編集しました"
+      redirect_to addresses_path
+    else
+      render :edit
+    end
   end
 
   protected
