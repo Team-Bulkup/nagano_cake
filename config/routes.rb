@@ -27,9 +27,9 @@ Rails.application.routes.draw do
   get 'customers' => 'customers#show'
   get 'customers/withdraw' => 'customers#withdraw'
   put 'customers/hide' => 'customers#hide'
-  get 'customers/edit' => 'customers#edit'
-  patch 'customers' =>'customers#update'
-  put 'customers' =>'customers#update'
+  get 'customers/edit_info' => 'customers#edit_info'
+  patch 'customers/update' =>'customers#update'
+  put 'customers/update' =>'customers#update'
   resources :orders, only: [:new, :create, :index, :show]
   get 'orders/confirm' => 'orders#confirm'
   get 'orders/thanks' => 'orders#thanks'
