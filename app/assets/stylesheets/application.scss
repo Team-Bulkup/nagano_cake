@@ -158,25 +158,14 @@
   margin-top: 30px;
 }
 
-.withdraw-text{
-  text-align: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-
-.customer-nondelete{
+/*管理者ログイン画面(admin_signup)*/
+.admin-signup{
   background-color: #3D8BCD;
   color: white;
-  width: 100px;
-  margin-right: 10px;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.customer-delete{
-  background-color: #FF0000;
-  color: white;
-  width: 100px;
-}
-
-.withdraw-button{
-  margin-top: 30px;
+.admin_signup_form{
+  width: 150px;
 }
