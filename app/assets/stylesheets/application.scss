@@ -108,3 +108,34 @@
 .admin_signup_form{
   width: 150px;
 }
+
+.header-nav li{
+  margin-left: 40px;
+}
+
+.nav{
+  height: 60px;
+}
+
+.navbar-nav > li > a{
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.navbar-text{
+  line-height:30px;
+}
+
+.navbar-brand{
+  line-height:30px;
+}
+
+.navbar-form{
+  position: relative;
+}
+
+.glyphicon-search{
+  position:absolute;
+  right: 20px;
+  top: 10px;
+}
