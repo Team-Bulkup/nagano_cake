@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
 
+    get 'orders/confirm' => 'orders#confirm'
+    get 'orders/thanks' => 'orders#thanks'
+
   namespace :admin do
     resources :order_products, only: [:update]
     resources :orders, only: [:index, :show, :update]
@@ -31,8 +34,6 @@ Rails.application.routes.draw do
   patch 'customers' =>'customers#update'
   put 'customers' =>'customers#update'
   resources :orders, only: [:new, :create, :index, :show]
-  get 'orders/confirm' => 'orders#confirm'
-  get 'orders/thanks' => 'orders#thanks'
   resources :cart_items, only: [:index, :create, :destroy, :update]
   delete 'cart_items' => 'cart_items#destroy_all'
   resources :products, only: [:index, :show]
