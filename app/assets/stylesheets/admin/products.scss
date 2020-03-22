@@ -1,3 +1,35 @@
 // Place all the styles related to the admin/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+label {
+	margin-bottom: 0;
+}
+
+.product-form {
+  border-collapse: separate;
+  border-spacing: 0px 8px;
+	width: 100%;
+}
+
+.product-new td{
+	padding: 0 5px;
+}
+
+.product-add{
+  background-color: #3D8BCD;
+  color: white;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.product-add_form{
+  width: 150px;
+}
+
+.product-edit {
+  background-color: #3D8BCD;
+  color: white;
+  width: 100px;
+  border-radius: 10px;
+}

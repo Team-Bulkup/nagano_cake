@@ -24,8 +24,8 @@
 			<tbody>
 				<% @categories.each do |category| %>
 				<tr>
-					<td><% category.name %></td>
-					<td><% category.is_enabled %></td>
+					<td><%= category.name %></td>
+					<td><%= category.is_enabled %></td>
 					<td><%= link_to "編集する", edit_admin_category_path(category.id), class:"btn category-edit active" %></td>
 				<% end %>
 			</tbody>
