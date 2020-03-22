@@ -1,2 +1,16 @@
-<h1>Admin::Categories#edit</h1>
-<p>Find me in app/views/admin/categories/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+		<h1><strong>ジャンル編集画面</strong></h1>
+		<table class="category-form">
+			<%= form_with(model: @category, local: true, url: admin_category_path) do |f| %>
+				<tr class="category-new">
+					<td><%= f.label :ジャンル %></td>
+					<td><%= f.text_field :name, class:"form-control" %></td>
+					<td><%= f.radio_button :is_enabled, :false, :checked => true %> 有効</td>
+					<td><%= f.radio_button :is_enabled, :true %> 無効</td>
+					<td><%= f.submit "変更を保存する", class:"btn category-update active" %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
