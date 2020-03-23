@@ -4,9 +4,15 @@ class CartItemsController < ApplicationController
   end
 
   def create
-  cart = CartItems.New
-  cart.save
-  redirect_to new_order_path
+    if params[:][:] ==
+       product = Products.find(params[:id])
+       product.save
+       redirect_to cart_items_path
+     else
+
+       cart = CartItems.New
+       cart.save
+       redirect_to new_order_path
   end
 
   def destroy
