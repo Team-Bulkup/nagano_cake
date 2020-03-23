@@ -4,8 +4,11 @@ class OrdersController < ApplicationController
   end
 
   def confirm
-    @order_new = Order.new
-
+    @order = Order.new
+    @order.payment_method = params[:order][:payment_method]
+    @order.postcode = params[:order][:postcode]
+    @order.name = params[:order][:name]
+    @order.address = params[:order][:address]
   end
 
   def create
@@ -18,6 +21,7 @@ class OrdersController < ApplicationController
   end
 
   def index
+    @orders = Order.all
   end
 
   def show
