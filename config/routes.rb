@@ -19,13 +19,15 @@ Rails.application.routes.draw do
     get 'top' => 'homes#top'
     resources :order_products, only: [:update]
     resources :orders, only: [:index, :show, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update] do
+      get 'orders' => 'orders#index'
+    end
     resources :categories, only: [:index, :create, :edit, :update]
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
   end
 
   resources :addresses,only: [:index, :create, :destroy, :edit, :update]
-  get 'customers' => 'customers#show'
+  get 'customer' => 'customers#show'
   get 'customers/withdraw' => 'customers#withdraw'
   put 'customers/hide' => 'customers#hide'
   get 'customers/edit_info' => 'customers#edit_info'
