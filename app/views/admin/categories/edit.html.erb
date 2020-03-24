@@ -6,8 +6,8 @@
 				<tr class="category-new">
 					<td><%= f.label :ジャンル %></td>
 					<td><%= f.text_field :name, class:"form-control" %></td>
-					<td><%= f.radio_button :is_enabled, :false, :checked => true %> 有効</td>
-					<td><%= f.radio_button :is_enabled, :true %> 無効</td>
+					<td><%= f.radio_button :is_enabled, true %> 有効</td>
+					<td><%= f.radio_button :is_enabled, false %> 無効</td>
 					<td><%= f.submit "変更を保存する", class:"btn category-update active" %></td>
 				</tr>
 			<% end %>
