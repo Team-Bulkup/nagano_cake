@@ -1,30 +1,34 @@
 class CartItemsController < ApplicationController
   def index
-   @products = Product.all
+   @carts = CartItem.all
+   @cart = CartItem.new
   end
 
   def create
-    if params[:][:] ==
-       product = Products.find(params[:id])
-       product.save
-       redirect_to cart_items_path
-     else
-
-       cart = CartItems.New
+       cart = CartItem.New
        cart.save
        redirect_to new_order_path
   end
 
   def destroy
-    @products = CartItems.find(params[:id])
+    @products = CartItem.find(params[:id])
     @products.destroy
     redirect_to cart_items_path
   end
 
   def destroy_all
+    @items = current_customer.cart_items
+    @items.each do |f|
+    f.destroy
+    end
+    redirect_to products_path
   end
 
   def update
+       cart_item = CartItem.find(params[:id])
+       cart_item.quantity = params[:cart_items][:quantity]
+       cart_item.update
+       redirect_to cart_items_path
   end
 
   private
