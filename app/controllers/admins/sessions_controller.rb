@@ -26,12 +26,12 @@ class Admins::SessionsController < Devise::SessionsController
   # end
   def after_sign_in_path_for(resource)
     flash[:notice] = "Signed In successfully"
-    new_admin_product_path #後にadminのtopの画面にpathするように変更。（to 仲井）
+    admin_top_path #後にadminのtopの画面にpathするように変更。（to 仲井）
   end
 
   def after_sign_up_path_for(resource)
     flash[:notice] = "Signed Up successfully"
-    new_admin_product_path #後にadminのtopの画面にpathするように変更。（to 仲井）
+    admin_top_path #後にadminのtopの画面にpathするように変更。（to 仲井）
   end
 
   def after_sign_out_path_for(resource)
