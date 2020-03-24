@@ -1,60 +1,96 @@
-=
+<div class="confirm-main">
+	<div class="cantainer">
+		<div clsss="row">
+			<div class="col-xs-1">
+			</div>
+			<div class="col-xs-9">
+				<div class="order-top">
+					<h3>注文情報確認</h3>
+				</div>
 
-<h3>注文情報確認</h3>
+				<div class="confirm-box clearfix">
+					<div class="confirm-top">
+						<div class="confirm-top-left">
+							<table>
+								<tr>
+									<th>商品名</th> <th>単価（税込）</th> <th>数量</th> <th>小計</th>
+								</tr>
+								<tr>
+									<td><!-- 商品画像と名前の表示 --></td>
+									<td><!-- 単価の表示 --></td>
+									<td><!-- 数量の表示 --></td>
+									<td><!-- 小計の表示 --></td>
+								</tr>
+							</table>
+						</div>
+						<div class="confirm-top-right">
+							<table>
+								<tr>
+									<th>送料</th>
+									<td><!-- 送料金額の表示 --></td>
+								</tr>
+								<tr>
+									<th>商品合計</th>
+									<td><!-- 商品の合計金額の表示 --></td>
+								</tr>
+								<tr>
+									<th>請求金額</th>
+									<td><!-- 請求金額の表示 --></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
 
 
-<table>
-	<tr>
-		<th>商品名</th> <th>単価（税込）</th> <th>数量</th> <th>小計</th>
-	</tr>
-	<tr>
-		<td><!-- 商品画像と名前の表示 --></td>
-		<td><!-- 単価の表示 --></td>
-		<td><!-- 数量の表示 --></td>
-		<td><!-- 小計の表示 --></td>
-	</tr>
-</table>
-
-<table>
-	<tr>
-		<th>送料</th>
-		<td><!-- 送料金額の表示 --></td>
-	</tr>
-	<tr>
-		<th>商品合計</th>
-		<td><!-- 商品の合計金額の表示 --></td>
-	</tr>
-	<tr>
-		<th>請求金額</th>
-		<td><!-- 請求金額の表示 --></td>
-	</tr>
-</table>
+				<div class="confirm-bottom">
+					<div class="payment">
+						<div class="payment-headiline">
+							 <h4>支払方法</h4>
+						</div>
+						<div class="payment-method">
+								<% if params[:order][:payment_method] == "true" %>
+										<p>クレジットカード</p>
+									<% else %>
+										<p>銀行振込</p>
+								<% end %>
+						</div>
 
 
-<h4>支払方法</h4>
 
-	<% if params[:order][:payment_method] == "true" %>
-			<p>クレジットカード</p>
-		<% else %>
-			<p>銀行振込</p>
-	<% end %>
 
-<h4>お届け先</h4>
-	<% if params[:order][:select] == "1" %>
-			<%= current_customer.postcode %>
-			<%= current_customer.address %>
-			<%= current_customer.last_name %><%= current_customer.first_name %>
 
-	<% elsif params[:order][:select] == "2" %>
-			<%= @orders.postcode %>
-			<%= @orders.address %>
-			<%= @orders.name %>
 
-	<% else %>
-			<%= @order.postcode %>
-			<%= @order.address %>
-			<%= @order.name %>
-	<% end %>
+						<div class="confirm-address-box">
+							<div class="confirm-address-headiline">
+								<h4>お届け先</h4>
+							</div>
+						<div class="confirm-address">
+							<% if params[:order][:select] == "1" %>
+									<%= current_customer.postcode %>
+									<%= current_customer.address %>
+									<%= current_customer.last_name %><%= current_customer.first_name %>
+
+							<% elsif params[:order][:select] == "2" %>
+									<%= @orders.postcode %>
+									<%= @orders.address %>
+									<%= @orders.name %>
+
+							<% else %>
+									<%= @order.postcode %>
+									<%= @order.address %>
+									<%= @order.name %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2">
+			</div>
+		</div>
+	</div>
+</div>
+
 
 
 

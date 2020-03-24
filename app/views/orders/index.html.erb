@@ -1,22 +1,24 @@
-<h3>注文履歴一覧</h3>
 
-<table>
-	<tr>
-		<th>注文日</th>
-		<th>配送先</th>
-		<th>注文商品</th>
-		<th>支払金額</th>
-		<th>ステータス</th>
-		<th>注文詳細</th>
-	</tr>
-	<tr>
-   		<% @oders.each do |f| %>
-			<td><%= f.created_at %></td>
-			<td><%= f.postcode %> <%= f.address %> <%= f.name %></td>
-			<td><%= f.order_products.id %></td>
-			<td></td>
-			<td></td>
-			<td><%= link_to "表示する" ,order_path(@order) %></td>
-		<% end %>
-	</tr>
-</table>
+
+
+						<table>
+							<tr>
+								<th>注文日</th>
+								<th>配送先</th>
+								<th>注文商品</th>
+								<th>支払金額</th>
+								<th>ステータス</th>
+								<th>注文詳細</th>
+							</tr>
+							<tr>
+						   		<% @oders.each do |f| %>
+									<td><%= f.created_at %></td>
+									<td><%= f.postcode %> <%= f.address %> <%= f.name %></td>
+									<td><%= f.order_products.id %></td>
+									<td></td>
+									<td></td>
+									<td><%= link_to "表示する" ,order_path(@order) %></td>
+								<% end %>
+							</tr>
+						</table>
+
