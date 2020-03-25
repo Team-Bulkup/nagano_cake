@@ -1,7 +1,67 @@
 // Place all the styles related to the cart_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-// .cart-items-top{
 
-// }
+
+.clearfix{
+	content:"";
+	display: block;
+	clear: both;
+}
+
+.cart-name{
+	float: left;
+}
+
+.cart-destroy-all{
+	float: right;
+}
+.cart-continue{
+	background-color: #3D8BCD;
+	color: white;
+}
+
+
+.cart-bottom-left{
+	float: left;
+}
+
+.cart-bottom-right{
+	float: right;
+	padding-right: 130px;
+	border:solid 2px black;
+	margin-right: 100px
+}
+
+.total-fee-left{
+	float: left;
+	padding:5px 20px;
+	border-right:solid 2px black;
+}
+
+.total-fee-right{
+	float: right;
+	padding:5px 20px;
+}
+
+.cart-next-btn{
+	background-color:#00CC66;
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

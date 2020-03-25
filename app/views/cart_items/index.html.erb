@@ -1,0 +1,68 @@
+
+<main clearfix>
+	<div class="container">
+		<div class="row">
+			<div class="col-sx-1">
+			</div>
+			<div class="col-sx-9">
+				<div class="cart-top">
+					<div class="cart-name">
+						<h3>ショッピングカート</h3>
+					</div>
+						<div class="cart-destroy-all">
+							<%= link_to "カートをからにする", cart_items_path, class:"btn btn-danger",method: :delete %>
+						</div>
+					</div>
+					<div class="cart-box">
+						<table class="table">
+							<tr>
+								<th>商品名</th>
+								<th>単価（税込)</th>
+								<th>数量</th>
+								<th>小計</th>
+								<th></th>
+							</tr>
+
+							<% i = 0 %>
+							<% @carts.each do |cart| %>
+							<tr>
+								<td><%= cart.product.image %> <%= cart.product.name %></td>
+								<td><%= cart.product.no_tax_price %></td>
+
+								<td><%= form_with model:cart do |f| %>
+										<%= f.number_field :quantity %>
+										<%= f.submit %>
+										<% end %>
+								</td>
+								<td><%= cart.quantity * cart.product.no_tax_price %></td>
+								<td><%= link_to '削除',cart_items_path,method: :delete %></td>
+							</tr>
+
+								<% i = i + cart.quantity * cart.product.no_tax_price %>
+							<% end %>
+						</table>
+	 				</div>
+	 			</div>
+
+				<div class="cart-bottom clearfix">
+					<div class="cart-bottom-left">
+						<%= link_to "買い物を続ける",root_path ,class:"btn cart-continue" %>
+					</div>
+				<div class="cart-bottom-right clearfix">
+					<div class="total-fee-left">
+						<span>合計金額</span>
+					</div>
+					<div class="total-fee-right">
+						<span><%= i %></span>
+					</div>
+				</div>
+			</div>
+
+
+			<div><%= link_to "情報入力へ進む", new_order_path ,class:"btn cart-next-btn" %></div>
+		</div>
+	</div>
+		<div class="col-sx-2">
+		</div>
+	</div>
+</main>
