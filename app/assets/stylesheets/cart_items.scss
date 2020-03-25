@@ -5,8 +5,8 @@
 .clearfix{
 	content:"";
 	display: block;
-	clear: both;
 }
+
 
 .cart-name{
 	float: left;
@@ -29,7 +29,7 @@
 	float: right;
 	padding-right: 130px;
 	border:solid 2px black;
-	margin-right: 100px
+	margin-right: 100px;
 }
 
 .total-fee-left{
@@ -46,7 +46,9 @@
 .cart-next-btn{
 	background-color:#00CC66;
 	color: white;
+	margin:0 auto;
 }
+
 
 
 
