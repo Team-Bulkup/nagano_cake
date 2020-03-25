@@ -108,3 +108,54 @@
 .admin_signup_form{
   width: 150px;
 }
+
+.header-nav li{
+  margin-left: 40px;
+}
+
+.nav{
+  height: 60px;
+}
+
+.navbar-nav > li > a{
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.navbar-text{
+  line-height:30px;
+}
+
+.navbar-brand{
+  line-height:30px;
+}
+
+.navbar-form{
+  position: relative;
+}
+
+.glyphicon-search{
+  position:absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.customer-definition{
+  display: inline-block;
+  padding: 5px 8px;
+  background-color: #99CCFF;
+  border-radius: 3px;
+  font-size: 11px;
+  border :1px solid black;
+}
+
+.admin-customer-table{
+  border-collapse: separate;
+  border-spacing: 0px 8px;
+}
+
+.admin-customer-update{
+  background-color: #0057D8;
+  color: white;
+}
+
