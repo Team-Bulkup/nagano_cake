@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
   end
 
   def confirm
+    @cart_items = current_customer.cart_items
+    @orders = Order.all
     @order = Order.new
     @order.payment_method = params[:order][:payment_method]
     @order.postcode = params[:order][:postcode]

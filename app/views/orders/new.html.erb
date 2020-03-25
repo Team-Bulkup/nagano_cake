@@ -1,4 +1,4 @@
-	<div class="order-new-box">
+	<div class="new-box">
 		<h3>注文情報入力</h3>
 		<h3>支払方法</h3>
 
@@ -15,21 +15,19 @@
 						<%= f.collection_select :address_id, Address.where(customer_id: current_customer.id), :id, :address %><br>
 						<%= f.radio_button :select,3 %>新しいお届け先<br>
 
-						 	<div class="order-new-select-box clearfix">
-								<div class="order-new-select-btn">
+						 	<div class="new-select-box clearfix">
+								<div class="new-select-btn">
 									郵便番号（ハイフンなし）<br>
 									住所<br>
 									宛名<br>
 								</div>
-								<div class="order-new-text-field">
+								<div class="order-text-field">
 									<%= f.text_field :postcode %><br>
 									<%= f.text_field :address %><br>
 									<%= f.text_field :name %><br>
 								</div>
 							</div>
-							<div class="order-new-btn">
 								<%= f.submit "確認画面へ進む" %>
-							</div>
 
 			<% end %>
 		</div>
