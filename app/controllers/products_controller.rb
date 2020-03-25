@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
   def index
   	@categories = Category.all
-  	@products = Product.all
-  	# gem "kaminari" を入れたら、下の記述に変更。
-  	# @products = Product.page(params[:page]).reverse_order
+  	@products = Product.page(params[:page]).reverse_order
   end
 
   def show
+  	@categories = Category.all
+  	@product = Product.find(params[:id])
+  	@cart_item = CartItem.new
   end
 end

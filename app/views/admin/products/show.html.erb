@@ -1,2 +1,58 @@
-<h1>Admin::Products#show</h1>
-<p>Find me in app/views/admin/products/show.html.erb</p>
+<!-- ここから新規商品登録 -->
+<div class="container">
+	<h1><strong>商品 詳細画面</strong></h1>
+	<div class="row" style="margin: 50px 0;">
+
+			<div class="col-xs-4">
+				<tr>
+					<td><%= attachment_image_tag @product, :image, :fill, 300, 200, format: 'jpeg''jpg' %></td>
+				</tr>
+			</div>
+
+			<div class="col-xs-4">
+				<table class="product-form">
+					<tr>
+						<td>商品名</td>
+						<td><%= @product.name %></td>
+					</tr>
+
+					<tr>
+						<td>商品説明</td>
+						<td><%= @product.detail %></td>
+					</tr>
+
+					<tr>
+						<td>ジャンル</td>
+						<td><%= @product.category.name %></td>
+					</tr>
+
+					<tr>
+						<td>税込価格（税抜き価格）</td>
+						<!-- 消費税を付け加えるための計算式keisannsiki -->
+						<% price = @product.no_tax_price * 1.1 %>
+						<td><%= price %>（<%= @product.no_tax_price %>） 円</td>
+					</tr>
+
+					<tr>
+						<td>販売ステータス</td>
+						<% if @product.is_available == true %>
+							<td>販売中</td>
+						<% else %>
+							<td>売り切れ</td>
+						<% end %>
+					</tr>
+				</table>
+			</div>
+
+			<div class="col-xs-4">
+				<tr>
+					<td>
+					</td>
+				</tr>
+			</div>
+		</div>
+		<div style="text-align: right;">
+			<%= link_to "編集する", edit_admin_product_path(@product), class:"btn product-edit active" %>
+		</div>
+</div>
+</div>

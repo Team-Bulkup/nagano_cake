@@ -1,2 +1,55 @@
-<h1>Admin::Products#new</h1>
-<p>Find me in app/views/admin/products/new.html.erb</p>
+<!-- ここから新規商品登録 -->
+<div class="container">
+	<h1><strong>商品 新規登録画面</strong></h1>
+	<div class="row" style="margin: 50px 0;">
+
+		<%= form_with(model: @product, local: true, url: admin_products_path) do |f| %>
+		<div class="col-xs-4">
+			<tr>
+				<td><%= attachment_image_tag @product, :image, :fill, 300, 200, format: 'jpeg''jpg' %></td>
+				<td><%= f.attachment_field :image %></td>
+			</tr>
+		</div>
+
+		<div class="col-xs-4">
+			<table class="product-form">
+				<tr>
+					<td><%= f.label :商品名 %></td>
+					<td><%= f.text_field :name, class:"form-control product-name" %></td>
+				</tr>
+
+				<tr>
+					<td><%= f.label :商品説明 %></td>
+					<td><%= f.text_field :detail, class:"form-control", style:"height:100px;" %></td>
+				</tr>
+
+				<tr>
+					<td><%= f.label :ジャンル %></td>
+					<td><%= f.collection_select :category_id, Category.all, :id, :name, class:"form-control",include_blank:"選択してください" %></td>
+				</tr>
+
+				<tr>
+					<td><%= f.label :税抜き価格 %></td>
+					<td><%= f.text_field :no_tax_price, class:"form-control" %>円</td>
+				</tr>
+
+				<tr>
+					<td><%= f.label :販売ステータス %></td>
+					<td><%= f.select :is_available, [["販売中",true], ["売り切れ",false]], include_blank:"選択してください", class:"form-control" %></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="col-xs-4">
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</div>
+	</div>
+	<div style="text-align: right;">
+		<%= f.submit "新規登録", class:"btn product-add active" %>
+	</div>
+	<% end %>
+</div>

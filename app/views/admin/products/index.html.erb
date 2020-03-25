@@ -1,2 +1,32 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
+<div class="container">
+	<h1><strong>商品一覧画面</strong></h1>
+	<!-- 商品新規登録の画面へ飛ぶ　画像はbootstrapで引用予定。 -->
+	<%= link_to "", new_admin_product_path, class:"form product-add" %>
+	<div class="row">
+			<table class="table table-bordered" style="width: 80%; margin: 30px auto;">
+				<thead bgcolor="#eee">
+					<tr>
+						<th width="10%">商品ID</th>
+						<th width="35%">商品名</th>
+						<th width="10%">税抜価格</th>
+						<th width="35%">ジャンル</th>
+						<th width="10%">ステータス</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @products.each do |product| %>
+					<tr>
+						<td><%= product.id %></td>
+						<td><%= product.name %></td>
+						<td><%= product.no_tax_price %></td>
+						<td><%= product.category.name %></td>
+						<% if product.is_available == true %>
+							<td>販売中</td>
+						<% else %>
+							<td>売り切れ</td>
+						<% end %>
+					<% end %>
+				</tbody>
+			</table>
+	</div>
+</div>
