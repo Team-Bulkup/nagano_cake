@@ -1,2 +1,136 @@
-<h1>Orders#confirm</h1>
-<p>Find me in app/views/orders/confirm.html.erb</p>
+
+<div class="order-main clearfix">
+	<div class="cantainer">
+		<div clsss="row">
+			<div class="col-xs-1">
+			</div>
+			<div class="col-xs-9">
+				<div class="order-top">
+					<h3>注文情報確認</h3>
+				</div>
+
+				<div class="confirm-box clearfix">
+					<div class="confirm-top">
+						<div class="confirm-top-left">
+							<table class="table">
+								<tr>
+									<th>商品名</th> <th>単価（税込）</th> <th>数量</th> <th>小計</th>
+								</tr>
+
+								<% i = 0 %>
+
+								<% @cart_items.each do |f| %>
+								<tr>
+									<td><%= @cart_items.product.name %>
+									<td><%= @cart_items.product.no_tax_price %></td>
+									<td><%= @cart_items.quantity %></td>
+									<td><%= @cart_items.product.no_tax_price * @cart_items.quantity %></td>
+									<% i = i + @cart_items.product.no_tax_price * @cart_items.quantity %>
+								</tr>
+								<% end %>
+							</table>
+						</div>
+						<div class="confirm-top-right">
+							<table class="table">
+								<tr>
+									<th>送料</th>
+									<td>800</td>
+								</tr>
+								<tr>
+									<th>商品合計</th>
+									<td><%= i %></td>
+								</tr>
+								<tr>
+									<th>請求金額</th>
+									<td><%= 800 + i %></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="confirm-bottom">
+					<div class="payment">
+							 <strong>支払方法</strong>
+						<span class="payment-method">
+							<% if params[:order][:payment_method] == "true" %>
+									クレジットカード
+								<% else %>
+									銀行振込
+							<% end %>
+						</span>
+
+						<div class="confirm-address-box">
+								<strong>お届け先</strong>
+								<span><% if params[:order][:select] == "1" %>
+										<%= current_customer.postcode %>
+										<%= current_customer.address %>
+										<%= current_customer.last_name %><%= current_customer.first_name %>
+
+								<% elsif params[:order][:select] == "2" %>
+										<%= @orders.postcode %>
+										<%= @orders.address %>
+										<%= @orders.name %>
+
+								<% else %>
+										<%= @order.postcode %>
+										<%= @order.address %>
+										<%= @order.name %>
+								<% end %>
+							</span>
+						</div>
+					</div>
+				</div>
+					<div class="green-btn">
+						<%= link_to "購入を確定をする", orders_thanks_path,method: :post,class:"btn label-success" %>
+
+					</div>
+			</div>
+
+			<div class="col-xs-2">
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

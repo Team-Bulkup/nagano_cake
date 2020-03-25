@@ -1,3 +1,62 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.crearfix::after{
+	content:"";
+	display:block;
+	clear: both;
+}
+
+.new-box{
+	margin-left: 40px;
+}
+
+.new-text-field{
+	float:left;
+}
+
+.new-select-btn{
+	float:left;
+	margin-left: 15px;
+}
+
+
+
+
+
+
+.confirm-top-left{
+	float:left;
+	border:solid 2px black;
+}
+
+.confirm-top-right{
+	float: right;
+	border:solid 2px black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
