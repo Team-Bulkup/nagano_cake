@@ -19,8 +19,8 @@
 				</tr>
 
 				<tr>
-					<td><%= f.label :商品説明 %></td>
-					<td><%= f.text_field :detail, class:"form-control", style:"height:100px;" %></td>
+					<td><%= f.label :商品説明, style:"" %></td>
+					<td><%= f.text_area :detail, class:"form-control", style:"height:100px;" %></td>
 				</tr>
 
 				<tr>
@@ -30,7 +30,7 @@
 
 				<tr>
 					<td><%= f.label :税抜き価格 %></td>
-					<td><%= f.text_field :no_tax_price, class:"form-control" %>円</td>
+					<td><%= f.text_field :no_tax_price, class:"form-control", style:"display: inline-block; width: 94%;" %>円</td>
 				</tr>
 
 				<tr>
