@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   put 'customers/update' =>'customers#update'
   resources :orders, only: [:new, :create, :index, :show]
   resources :cart_items, only: [:index, :create, :destroy, :update]
-  delete 'cart_items' => 'cart_items#destroy_all'
+  delete 'cart_items_all' => 'cart_items#destroy_all'
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show] do
     get 'products' => 'categories#index'
