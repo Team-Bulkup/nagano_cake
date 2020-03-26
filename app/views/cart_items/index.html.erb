@@ -26,7 +26,7 @@
 							<% i = 0 %>
 							<% @carts.each do |cart| %>
 							<tr>
-								<td><%= attachment_image_tag cart,:image, size:"100x100" %>
+								<td><%= attachment_image_tag cart.product,:image, size:"100x100" %>
 								    <%= cart.product.name %></td>
 								<td><%= cart.product.no_tax_price %></td>
 
@@ -36,7 +36,7 @@
 									<% end %>
 								</td>
 								<td><%= cart.quantity * cart.product.no_tax_price %></td>
-								<td><%= link_to '削除',cart_item_path,method: :delete %></td>
+								<td><%= link_to '削除', "/cart_items/#{cart.id}", method: :delete %></td>
 							</tr>
 
 								<% i = i + cart.quantity * cart.product.no_tax_price %>

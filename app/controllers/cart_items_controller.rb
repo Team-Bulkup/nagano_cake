@@ -4,9 +4,10 @@ class CartItemsController < ApplicationController
   end
 
   def create
-       cart = CartItem.New
+       cart = CartItem.new(cart_params)
+       cart.customer_id = current_customer.id
        cart.save
-       redirect_to new_order_path
+       redirect_to cart_items_path
   end
 
   def destroy
@@ -33,6 +34,6 @@ class CartItemsController < ApplicationController
   private
 
   def cart_params
-    params.require(:cart).permit(:image, :name ,:no_tax_price)
+    params.require(:cart_item).permit(:quantity ,:product_id)
   end
 end
