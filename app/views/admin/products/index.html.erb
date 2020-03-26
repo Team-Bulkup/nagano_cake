@@ -1,9 +1,11 @@
 <div class="container">
-	<h1><strong>商品一覧画面</strong></h1>
-	<!-- 商品新規登録の画面へ飛ぶ　画像はbootstrapで引用予定。 -->
-	<%= link_to "", new_admin_product_path, class:"form product-add" %>
+	<div class="product-top">
+		<h1><strong>商品一覧画面</strong></h1>
+		<!-- 商品新規登録の画面へ飛ぶ　画像はbootstrapで引用予定。 -->
+		<p class="circle"><%= link_to "＋", new_admin_product_path, class:"btn-circle-flat" %></p>
+	</div>
 	<div class="row">
-			<table class="table table-bordered" style="width: 80%; margin: 30px auto;">
+			<table class="table" style="width: 80%; margin: 30px auto;">
 				<thead bgcolor="#eee">
 					<tr>
 						<th width="10%">商品ID</th>
@@ -18,7 +20,7 @@
 					<tr>
 						<td><%= product.id %></td>
 						<td><%= product.name %></td>
-						<td><%= product.no_tax_price %></td>
+						<td><%= converting_to_jpy(product.no_tax_price) %></td>
 						<td><%= product.category.name %></td>
 						<% if product.is_available == true %>
 							<td>販売中</td>

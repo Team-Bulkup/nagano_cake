@@ -21,13 +21,13 @@
 					<div class="col-xs-6">
 						<h1><%= @product.name %></h1>
 						<p><%= @product.detail %></p>
-						<% price = @product.no_tax_price * 1.1 %>
-						<h3>¥ <%= price %>（税込）</h3>
+						<% price = (BigDecimal(@product.no_tax_price) * BigDecimal("1.1")).ceil %>
+						<h3>¥ <%= converting_to_jpy(price) %>（税込）</h3>
 					</div>
 				</div>
 				<!-- 注文個数はセレクトボタンで生成 -->
 				<div style="margin: 20px; text-align: right;">
-				<%= f.select :quantity, options_for_select((1..25).to_a), include_blank:"個数選択" %>
+				<%= f.select :quantity, options_for_select((1..25).to_a), include_blank: "個数選択", class:"quantity-select" %>
 				<!-- カートに入れるボタン -->
 				<%= f.submit "カートに入れる", class:"btn cart-add active" %>
 				</div>
