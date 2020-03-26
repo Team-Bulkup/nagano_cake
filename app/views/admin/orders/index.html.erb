@@ -11,13 +11,30 @@
         </tr>
         <% @orders.each do |order| %>
         <tr>
-          <td><%= order.created_at %></td>
-          <td><%= order.customer.name %></td>
+          <td>
+            <%= link_to admin_order_path(order) do %>
+            <%= order.created_at %>
+              <% end %>
+            </td>
+          <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
           <td><%= order.order_products.count %></td>
-          <td><%= order.status %></td>
+          <td>
+            <% if order.status == "waitmoney" %>
+            入金待ち
+            <% elsif order.status == "moneycheck" %>
+            入金確認
+            <% elsif order.status == "making" %>
+            製作中
+            <% elsif order.status == "sentready" %>
+            発送準備中
+            <% else%>
+            発送済み
+            <% end %>
+            </td>
         </tr>
         <% end %>
       </table>
+      <%= paginate @orders, class: "paginate" %>
     </div>
   </div>
 </div>

@@ -25,7 +25,7 @@ class Admins::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   def after_sign_in_path_for(resource)
-    flash[:notice] = "Signed In successfully"
+    flash[:notice] = "サインインしました。"
     admin_top_path #後にadminのtopの画面にpathするように変更。（to 仲井）
   end
 
@@ -35,6 +35,7 @@ class Admins::SessionsController < Devise::SessionsController
   end
 
   def after_sign_out_path_for(resource)
+    flash[:notice] = "ログアウトしました。"
     new_admin_session_path
   end
 end

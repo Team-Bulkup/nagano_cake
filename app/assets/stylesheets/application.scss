@@ -151,10 +151,27 @@
 
 .admin-customer-table{
   border-collapse: separate;
-  border-spacing: 0px 8px;
+  border-spacing: 0px 15px;
 }
 
 .admin-customer-update{
+  background-color: #0057D8;
+  color: white;
+}
+
+.order-update{
+  background-color: #0057D8;
+  color: white;
+  margin-left: 20px;
+}
+
+.admin-order-table{
+  border-collapse: separate;
+  border-spacing: 0px 8px;
+  margin-bottom: 30px;
+}
+
+.order_product-update{
   background-color: #0057D8;
   color: white;
 }
