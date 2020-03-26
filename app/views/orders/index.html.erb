@@ -1,11 +1,12 @@
 <div class="index-main">
-	<h3>注文履歴一覧</h3>
 
 	<div class="container">
 		<div class="row">
 			<div clsss="col-xs-1">
 			</div>
 			<div clsss="col-xs-10">
+				<h3 class="index-top">注文履歴一覧</h3>
+				<div class="index-box">
 						<table class="table">
 							<tr>
 								<th>注文日</th>
@@ -21,24 +22,21 @@
 									<td><%= f.postcode %> <%= f.address %> <%= f.name %></td>
 									<td>
 										<% f.order_products.each do |o| %>
-											<%= o.name %>
+											<%= o.name %><br>
 										<% end %>
 									</td>
 									<td><%= f.charge %></td>
-									<td><% if f.payment_method = true %>
-											<span>クレジットカード</span>
-	    								<% else %>
-	    									<span>銀行振込</span>
-	    								<% end %>
+									<td>
 									</td>
-									<td><div class="index-btn"><%= link_to "表示する" ,order_path(f) %></div></td>
+									<td><div class="index-btn"><%= link_to "表示する" ,order_path(f),class:"btn btn-primary" %></div></td>
 								<% end %>
 							</tr>
 						</table>
+					</div>
 			</div>
 			<div clsss="col-xs-1">
 			</div>
 		</div>
 	</div>
-</div>>
+</div>
 
