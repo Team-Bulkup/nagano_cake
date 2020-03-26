@@ -4,7 +4,7 @@
 			<div class="categories">
 				<h4 class="categories-serch">ジャンル検索</h4>
 				<% @categories.each do |category| %>
-					<p><%= category.name %></p>
+					  <p><%= link_to category.name, category_products_path(category.id) %></p>
 				<% end %>
 			</div>
 		</div>
