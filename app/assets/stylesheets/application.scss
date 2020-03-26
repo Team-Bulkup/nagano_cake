@@ -23,9 +23,13 @@
   box-sizing: border-box;
 }
 
+body{
+  background-color: #dcc6b9;
+  position: ralative;
+}
+
 /*新規登録、ログインのタイトル*/
 .all-title{
-  background-color: #eee;
   font-size: 30px;
 }
 
@@ -128,6 +132,7 @@
 
 .navbar-brand{
   line-height:30px;
+  font-family: 'Comic Sans MS';
 }
 
 .navbar-form{
@@ -174,4 +179,17 @@
 .order_product-update{
   background-color: #0057D8;
   color: white;
+}
+
+#navbarEexample{
+  margin-top: 2px;
+}
+
+footer{
+  width: 100%;
+  height: 200px;
+  background-color: #eee;
+  margin-top: 50px;
+  position: absolute;
+    bottom: 0;
 }
