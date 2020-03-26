@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+  get 'categories/show'
   # devise_for :admins
   # devise_for :users
   devise_for :admins, controllers: {
@@ -39,5 +41,8 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:index, :create, :destroy, :update]
   delete 'cart_items' => 'cart_items#destroy_all'
   resources :products, only: [:index, :show]
+  resources :categories, only: [:index, :show] do
+    get 'products' => 'categories#index'
+  end
 
 end
