@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :order_products, only: [:update]
     resources :orders, only: [:index, :show, :update]
     resources :customers, only: [:index, :show, :edit, :update] do
-      get 'orders' => 'orders#index'
+      get 'orders' => 'orders#customer_index'
     end
     resources :categories, only: [:index, :create, :edit, :update]
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
