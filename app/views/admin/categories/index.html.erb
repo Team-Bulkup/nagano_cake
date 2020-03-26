@@ -6,8 +6,8 @@
 				<tr class="category-new">
 					<td><%= f.label :ジャンル %></td>
 					<td><%= f.text_field :name, class:"form-control" %></td>
-					<td><%= f.radio_button :is_enabled, :false, :checked => true %> 有効</td>
-					<td><%= f.radio_button :is_enabled, :true %> 無効</td>
+					<td><%= f.radio_button :is_enabled, true %> 有効</td>
+					<td><%= f.radio_button :is_enabled, false %> 無効</td>
 					<td><%= f.submit "追加", class:"btn category-add active" %></td>
 				</tr>
 			<% end %>
@@ -24,9 +24,13 @@
 			<tbody>
 				<% @categories.each do |category| %>
 				<tr>
-					<td><% category.name %></td>
-					<td><% category.is_enabled %></td>
-					<td><%= link_to "編集する", edit_admin_category_path(category.id), class:"btn category-edit active" %></td>
+					<td><%= category.name %></td>
+					<% if category.is_enabled == true %>
+						<td>有効</td>
+					<% else %>
+						<td>無効</td>
+					<% end %>
+					<td><%= link_to "編集する", edit_admin_category_path(category.id), class:"btn category-edit" %></td>
 				<% end %>
 			</tbody>
 		</table>
