@@ -1,5 +1,8 @@
 class HomesController < ApplicationController
- 
+	def top
+		@categories = Category.all
+		@products = Product.offset(rand(Product.count)).first(4)
+	end
 end
 
 
