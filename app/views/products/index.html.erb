@@ -1,13 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-2">
-			<div class="categories">
-				<h4 class="categories-serch">ジャンル検索</h4>
-				<% @categories.each do |category| %>
-					  <p><%= link_to category.name, category_products_path(category.id) %></p>
-				<% end %>
-			</div>
-		</div>
+		<%= render 'categories/link', categories: @categories %>
 
 		<div class="col-xs-10">
 			<div class="product-top">
@@ -15,28 +8,7 @@
 					<p>(全<%= @products.count %>件)</p>
 			</div>
 			<!-- 以下は gem "kaminari" -->
-			<% @products.each do |product| %>
-			<div class="product-block">
-				<!-- 下記の記述で商品写真 -->
-				<div class="block block-image">
-					<%= link_to product_path(product.id) do %>
-					<%= attachment_image_tag product, :image, :fill, 210, 130 %>
-					<% end %>
-				</div>
-				<!-- 下記の記述で商品名 -->
-				<div class="block-name" style="padding: 10px 0;">
-					<%= product.name %>
-				</div>
-				<!-- 下記の記述で商品価格 -->
-				<div class="block-price">
-					¥<%= converting_to_jpy(product.no_tax_price) %>
-				</div>
-			</div>
-			<% end %>
-		</div>
-		<div class="page">
-			<%= paginate @products, class: "paginate" %>
-			</style>
+			<%= render 'product_index', products: @products %>
 		</div>
 	</div>
 </div>
