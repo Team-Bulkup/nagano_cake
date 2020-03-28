@@ -21,11 +21,11 @@
 
 								<% @cart_items.each do |f| %>
 								<tr>
-									<td><%= @cart_items.product.name %>
-									<td><%= @cart_items.product.no_tax_price %></td>
-									<td><%= @cart_items.quantity %></td>
-									<td><%= @cart_items.product.no_tax_price * @cart_items.quantity %></td>
-									<% i = i + @cart_items.product.no_tax_price * @cart_items.quantity %>
+									<td><%= f.product.name %>
+									<td><%= f.product.no_tax_price * 1.1 %></td>
+									<td><%= f.quantity %></td>
+									<td><%= f.product.no_tax_price * f.quantity %></td>
+									<% i = i + f.product.no_tax_price * f.quantity %>
 								</tr>
 								<% end %>
 							</table>
@@ -42,14 +42,15 @@
 								</tr>
 								<tr>
 									<th>請求金額</th>
-									<td><%= 800 + i %></td>
+									<td><%= 800 + i * 1.1 %></td>
 								</tr>
 							</table>
 						</div>
 					</div>
 				</div>
 
-
+			<%= form_with model: @order,url: orders_path ,method: :post do |f| %>
+				<%= f.hidden_field :charge, :value => i + 800 %>
 				<div class="confirm-bottom">
 					<div class="payment">
 							 <strong>支払方法</strong>
@@ -67,23 +68,35 @@
 										<%= current_customer.postcode %>
 										<%= current_customer.address %>
 										<%= current_customer.last_name %><%= current_customer.first_name %>
+										<%= f.hidden_field :postcode, :value => current_customer.postcode %>
+										<%= f.hidden_field :address, :value => current_customer.address %>
+										<%= f.hidden_field :name, :value => current_customer.last_name + current_customer.last_name%>
 
 								<% elsif params[:order][:select] == "2" %>
-										<%= @orders.postcode %>
-										<%= @orders.address %>
-										<%= @orders.name %>
+										<% a = Address.find(params[:order][:address_id]) %>
+										<%= a.postcode %>
+										<%= a.address %>
+										<%= a.name %>
+										<%= f.hidden_field :postcode, :value => a.postcode %>
+										<%= f.hidden_field :address, :value => a.address %>
+										<%= f.hidden_field :name, :value => a.name %>
 
 								<% else %>
-										<%= @order.postcode %>
-										<%= @order.address %>
-										<%= @order.name %>
+										<%= params[:order][:postcode] %>
+										<%= params[:order][:name] %>
+										<%= params[:order][:address] %>
+										<%= f.hidden_field :postcode, :value => params[:order][:postcode] %>
+										<%= f.hidden_field :address, :value => params[:order][:name] %>
+										<%= f.hidden_field :name, :value => params[:order][:address] %>
 								<% end %>
 							</span>
 						</div>
 					</div>
 				</div>
+				<%= f.hidden_field :payment_method, :value => params[:order][:payment_method] %>
+				<%= f.submit "購入を確定する" %>
+				<% end %>
 					<div class="green-btn">
-						<%= link_to "購入を確定をする", orders_thanks_path,method: :post,class:"btn label-success" %>
 
 					</div>
 			</div>
