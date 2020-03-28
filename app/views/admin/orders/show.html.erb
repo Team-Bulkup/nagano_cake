@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h1><strong>注文詳細画面</strong></h1>
-      <%= form_with(model: @order, local: true, url: admin_order_path, method: :put) do |f| %>
+      <%= form_with(model: @order, local: true, url: admin_order_path(@order), method: :put) do |f| %>
       <table class="admin-order-table" width="80%">
         <tr>
           <td width="5%"><strong>購入者</strong></td>
@@ -28,10 +28,10 @@
         </tr>
       </table>
       <% end %>
+
       <div class="row">
         <div class="col-xs-9">
-          <% @order_product.each do |order| %>
-          <%= form_with(model: @order_product, local: true, url: admin_order_product_path, method: :put) do |f| %>
+          <% @order_products.each do |order_product| %>
           <table class="table" width="50%">
             <tr bgcolor="#eee">
               <th>商品名</th>
@@ -42,15 +42,16 @@
               <th></th>
             </tr>
             <tr>
-              <td><%= order.name %></td>
-              <td><%= converting_to_jpy(order.price) %></td>
-              <td><%= order.quantity %></td>
-              <td><%= converting_to_jpy(order.price * order.quantity) %></td>
+              <td><%= order_product.name %></td>
+              <td><%= converting_to_jpy(order_product.price) %></td>
+              <td><%= order_product.quantity %></td>
+              <td><%= converting_to_jpy(order_product.price * order_product.quantity) %></td>
+              <%= form_with(model: order_product, local: true, url: admin_order_product_path(order_product), method: :put) do |f| %>
               <td><%= f.select  :status, OrderProduct.statuses.keys.map {|k| [I18n.t("enums.order_product.status.#{k}"), k]} %></td>
               <td><%= f.submit "更新", class:"btn order_product-update" %></td>
+              <% end %>
             </tr>
           </table>
-          <% end %>
           <% end %>
         </div>
         <div class="col-xs-3">
