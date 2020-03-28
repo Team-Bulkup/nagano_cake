@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
 	def top
-		@categories = Category.all
+  	# この記述でジャンルステータスが有効のカテゴリーのみ表示
+	 	@categories = Category.where(is_enabled: true)
 		@products = Product.offset(rand(Product.count)).first(4)
 	end
 end

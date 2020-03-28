@@ -6,7 +6,6 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def create
-  	@categories = Category.all
   	@category = Category.new(category_params)
   	if @category.save
   		flash[:success] = "Category was successfully added."
