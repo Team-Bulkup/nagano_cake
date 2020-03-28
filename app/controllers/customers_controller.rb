@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_customer!
   def show
     @customer = Customer.find(current_customer.id)
   end
@@ -23,7 +24,7 @@ class CustomersController < ApplicationController
     @customer = Customer.find(current_customer.id)
     if @customer.update(customer_params)
       flash[:notice] = "You have updated customer successfully."
-      redirect_to customers_path(@customer)
+      redirect_to customer_path(@customer)
     else
       render :edit
     end

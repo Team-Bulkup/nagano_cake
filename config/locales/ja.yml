@@ -1,0 +1,16 @@
+ja:
+  enums:
+    order:
+     status:
+        waitmoney: "入金待ち"
+        moneycheck: "入金確認"
+        making: "製作中"
+        sentready: "発送準備中"
+        finishsenting: '発送済み'
+
+    order_product:
+     status:
+        impossible: "着手不可"
+        waitmake: "製作待ち"
+        making: "製作中"
+        finishmaking: "製作完了"

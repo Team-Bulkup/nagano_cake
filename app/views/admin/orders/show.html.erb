@@ -1,2 +1,75 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1><strong>注文詳細画面</strong></h1>
+      <%= form_with(model: @order, local: true, url: admin_order_path, method: :put) do |f| %>
+      <table class="admin-order-table" width="80%">
+        <tr>
+          <td width="5%"><strong>購入者</strong></td>
+          <td><a><%= @order.customer.last_name %><%= @order.customer.first_name %></a></td>
+        </tr>
+        <tr>
+          <td><strong>配送先</strong></td>
+          <td>〒<%= @order.postcode %><%= @order.address %><%= @order.name %></td>
+        </tr>
+        <tr>
+          <td><strong>支払方法</strong></td>
+          <td>
+            <% if @order.payment_method == true %>
+            クレジットカード
+            <% else %>
+            銀行振込
+            <% end %>
+            </td>
+        </tr>
+        <tr>
+          <td><strong>注文ステータス</strong></td>
+          <td width="20%"><%= f.select  :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %><%= f.submit "更新", class:"btn order-update" %></td>
+        </tr>
+      </table>
+      <% end %>
+      <div class="row">
+        <div class="col-xs-9">
+          <% @order_product.each do |order| %>
+          <%= form_with(model: @order_product, local: true, url: admin_order_product_path, method: :put) do |f| %>
+          <table class="table" width="50%">
+            <tr bgcolor="#eee">
+              <th>商品名</th>
+              <th>単価（税込）</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th>製作ステータス</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td><%= order.name %></td>
+              <td><%= converting_to_jpy(order.price) %></td>
+              <td><%= order.quantity %></td>
+              <td><%= converting_to_jpy(order.price * order.quantity) %></td>
+              <td><%= f.select  :status, OrderProduct.statuses.keys.map {|k| [I18n.t("enums.order_product.status.#{k}"), k]} %></td>
+              <td><%= f.submit "更新", class:"btn order_product-update" %></td>
+            </tr>
+          </table>
+          <% end %>
+          <% end %>
+        </div>
+        <div class="col-xs-3">
+          <table class="admin-order-table">
+            <tr>
+              <td><strong>商品合計</strong></td>
+              <td> <%= converting_to_jpy(@order.charge - @order.postage) %>円</td>
+            </tr>
+            <tr>
+              <td><strong>送料</strong></td>
+              <td><%= converting_to_jpy(@order.postage) %>円</td>
+            </tr>
+            <tr>
+              <td><strong>請求金額合計</strong></td>
+              <td><strong><%= converting_to_jpy(@order.charge) %>円</strong></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

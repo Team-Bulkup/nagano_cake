@@ -1,11 +1,11 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :authenticate_admin!
   def index
   	@categories = Category.all
   	@category = Category.new
   end
 
   def create
-  	@categories = Category.all
   	@category = Category.new(category_params)
   	if @category.save
   		flash[:success] = "Category was successfully added."

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+  get 'categories/show'
   # devise_for :admins
   # devise_for :users
   devise_for :admins, controllers: {
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
     resources :order_products, only: [:update]
     resources :orders, only: [:index, :show, :update]
     resources :customers, only: [:index, :show, :edit, :update] do
-      get 'orders' => 'orders#index'
+      get 'orders' => 'orders#customer_index'
     end
     resources :categories, only: [:index, :create, :edit, :update]
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
@@ -40,5 +42,8 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:index, :create, :destroy, :update]
   delete 'cart_items_all' => 'cart_items#destroy_all'
   resources :products, only: [:index, :show]
+  resources :categories, only: [:index, :show] do
+    get 'products' => 'categories#index'
+  end
 
 end

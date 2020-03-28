@@ -1,16 +1,32 @@
-
-<%= render 'categories/link' %>
+<div class="container">
+	<div class="row">
+		<%= render 'categories/link', categories: @categories%>
 
 		<div class="col-xs-10">
 			<div class="top-center-img">
 				<div class="top-center-text">
-					ようこそ、NagoyaCakeへ！<br>
+					ようこそ、NaganoCakeへ！<br>
 					このサイトは、ケーキ販売のECサイトになります。<br>
 					会員でない方も商品は見れますが<br>
-					購入には会員登録が必要です。</div>
+				購入には会員登録が必要です。</div>
 			</div>
-				<h1>オススメ商品</h1>
-					<%= link_to "もっと見る>",products_path %>
+			<h1>オススメ商品</h1>
+			<% @products.each do |product| %>
+			<div class="product-block">
+				<%= link_to product_path(product.id) do %>
+				<%= attachment_image_tag product, :image, :fill, 210, 130 %>
+				<% end %>
+				<div class="block-name" style="padding: 10px 0;">
+					<%= product.name %>
+				</div>
+				<div>
+					¥<%= (BigDecimal(product.no_tax_price) * BigDecimal("1.1")).ceil %>
+				</div>
+			</div>
+			<% end %>
+			<div>
+				<%= link_to "もっと見る>",products_path %>
+			</div>
 		</div>
 	</div>
 </div>

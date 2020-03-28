@@ -8,23 +8,49 @@ label {
 
 .product-form {
   border-collapse: separate;
-  border-spacing: 0px 8px;
+  border-spacing: 0px 10px;
 	width: 100%;
 }
 
+.btn-circle-flat {
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid black;
+  color: black;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  position: right;
+}
+
+.btn-circle-flat:hover {
+  text-decoration: none;
+}
+
+.circle {
+}
+
 .product-new td{
-	padding: 0 5px;
+  padding: 0 5px;
+}
+
+select {
+  width: 100%;
+  background-color: white;
 }
 
 .product-add{
   background-color: #3D8BCD;
   color: white;
-  width: 100px;
+  width: 200px;
   border-radius: 10px;
 }
 
 .product-add_form{
-  width: 150px;
+  width: 200px;
 }
 
 .product-edit {
@@ -37,4 +63,17 @@ label {
 .product-add {
   text-align: right;
   border-radius: 30px
+}
+
+.admin-product-detail {
+  border-collapse: separate;
+  border-spacing: 0px 10px;
+  width: 100%;
+}
+
+.product-update {
+  background-color: #3D8BCD;
+  color: white;
+  width: 150px;
+  border-radius: 10px;
 }
