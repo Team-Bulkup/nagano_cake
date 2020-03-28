@@ -21,7 +21,7 @@
 
 							  <tr>
 							    <th>支払方法</th>
-							    <td><% if @order.payment_method = true %> 
+							    <td><% if @order.payment_method = true %>
 							    		<span>クレジットカード</span>
 							    	<% else %>
 							    		<span>銀行振込</span>
@@ -41,7 +41,7 @@
 						<div class="show-top-right">
 							 <table class="table">
 								  <tr>
-								    <th>商品合計</th><td><%= @order.charge - 800 %></td>
+								    <th>商品合計</th><td><%= (@order.charge - 800) * 1.1 %></td>
 								  </tr>
 
 								  <tr>
@@ -49,7 +49,7 @@
 								  </tr>
 
 								  <tr>
-								    <th>ご請求額</th><td><%= @order.charge %></td>
+								    <th>ご請求額</th><td><%= @order.charge * 1.1 %></td>
 								  </tr>
 
 							</table>
@@ -73,7 +73,7 @@
 										<td><%= f.name %></td>
 										<td><%= f.price / f.quantity %></td>
 										<td><%= f.quantity %></td>
-										<td><%= f.price %></td>
+										<td><%= f.price * 1.1 %></td>
 									</tr>
 							<% end %>
 						</table>

@@ -22,7 +22,7 @@
 								<% @cart_items.each do |f| %>
 								<tr>
 									<td><%= f.product.name %>
-									<td><%= f.product.no_tax_price %></td>
+									<td><%= f.product.no_tax_price * 1.1 %></td>
 									<td><%= f.quantity %></td>
 									<td><%= f.product.no_tax_price * f.quantity %></td>
 									<% i = i + f.product.no_tax_price * f.quantity %>
@@ -42,7 +42,7 @@
 								</tr>
 								<tr>
 									<th>請求金額</th>
-									<td><%= 800 + i %></td>
+									<td><%= 800 + i * 1.1 %></td>
 								</tr>
 							</table>
 						</div>
@@ -68,10 +68,9 @@
 										<%= current_customer.postcode %>
 										<%= current_customer.address %>
 										<%= current_customer.last_name %><%= current_customer.first_name %>
-
-											<%= f.hidden_field :postcode, :value => current_customer.postcode %>
-											<%= f.hidden_field :address, :value => current_customer.address %>
-											<%= f.hidden_field :name, :value => current_customer.last_name + current_customer.last_name%>
+										<%= f.hidden_field :postcode, :value => current_customer.postcode %>
+										<%= f.hidden_field :address, :value => current_customer.address %>
+										<%= f.hidden_field :name, :value => current_customer.last_name + current_customer.last_name%>
 
 								<% elsif params[:order][:select] == "2" %>
 										<% a = Address.find(params[:order][:address_id]) %>
