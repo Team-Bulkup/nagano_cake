@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 	 	@categories = Category.where(is_enabled: true)
 
 		@products = []
-
+		# .page(params[:page]).all
 		@categories.each do |category|
 			category.products.each do |product|
 				if product.is_available == true
@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
 				end
 			end
 		end
+		@products = Kaminari.paginate_array(@products).page(params[:page]).per(8)
   end
 
   def show
