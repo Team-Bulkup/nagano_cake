@@ -3,7 +3,7 @@ class Admin::OrderProductsController < ApplicationController
   def update
     @order_product = OrderProduct.find(params[:id])
     if @order_product.update(order_product_params)
-      redirect_to admin_order_path(@order_product.order_id)
+      redirect_to admin_order_path(@order_product.order.id)
     else
       @order = Order.find(params[:id])
       render 'orders/show'
