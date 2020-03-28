@@ -10,12 +10,12 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @order_product = @order.order_products
+    @order_products = @order.order_products
   end
 
   def update
     @order = Order.find(params[:id])
-    if @order.update(order_params)
+    if @order_product.update(order_params)
       redirect_to admin_order_path(@order)
     else
       render :show
