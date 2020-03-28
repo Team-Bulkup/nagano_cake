@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   delete 'cart_items_all' => 'cart_items#destroy_all'
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show] do
-    get 'products' => 'categories#index'
+    resources :products, only: [:index]
   end
 
 end

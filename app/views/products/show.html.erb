@@ -21,6 +21,7 @@
 					<div class="col-xs-6">
 						<h1><%= @product.name %></h1>
 						<p><%= @product.detail %></p>
+						<!-- 小数点以下の切り捨てと、消費税1.1%の掛け算 -->
 						<% price = (BigDecimal(@product.no_tax_price) * BigDecimal("1.1")).ceil %>
 						<h3>¥ <%= converting_to_jpy(price) %>（税込）</h3>
 					</div>
