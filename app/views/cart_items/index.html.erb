@@ -28,18 +28,18 @@
 							<tr>
 								<td><%= attachment_image_tag cart.product,:image, size:"100x100" %>
 								    <%= cart.product.name %></td>
-								<td><%= cart.product.no_tax_price %></td>
+								<td><%= cart.product.no_tax_price * 1.1 %></td>
 
 								<td><%= form_with model:cart ,url:cart_item_path(cart), method: :PATCH do |f| %>
 										<%= f.number_field :quantity %>
 										<%= f.submit %>
 									<% end %>
 								</td>
-								<td><%= cart.quantity * cart.product.no_tax_price %></td>
+								<td><%= cart.quantity * cart.product.no_tax_price * 1.1 %></td>
 								<td><%= link_to '削除', "/cart_items/#{cart.id}", method: :delete ,class:"btn btn-danger" %></td>
 							</tr>
 
-								<% i = i + cart.quantity * cart.product.no_tax_price %>
+								<% i = i + cart.quantity * cart.product.no_tax_price * 1.1 %>
 							<% end %>
 						</table>
 	 				</div>
@@ -47,7 +47,7 @@
 
 				<div class="cart-bottom clearfix">
 					<div class="cart-bottom-left">
-						<%= link_to "買い物を続ける",root_path ,class:"btn cart-continue" %>
+						<%= link_to "買い物を続ける", products_path ,class:"btn cart-continue" %>
 					</div>
 				<div class="cart-bottom-right clearfix">
 					<div class="total-fee-left">
