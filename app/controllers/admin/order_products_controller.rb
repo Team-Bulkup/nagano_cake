@@ -2,12 +2,15 @@ class Admin::OrderProductsController < ApplicationController
   before_action :authenticate_admin!
   def update
     @order_product = OrderProduct.find(params[:id])
-    if @order_product.update(order_product_params)
+    @order_product_status = params[:order_product][:status]
+        @order_product.update(status: @order_product_status)
+
+        if @order_product_status == "making"
+            @order_product.order.update(status: "making")
+        elsif @order_product_status == "finishmaking"
+            @order_product.order.update(status: "sentready")
+        end
       redirect_to admin_order_path(@order_product.order.id)
-    else
-      @order = Order.find(params[:id])
-      render 'orders/show'
-    end
   end
   protected
   def order_product_params
