@@ -1,12 +1,12 @@
-<!-- ここから新規商品登録 -->
+<!-- ここから商品編集 -->
 <div class="container">
-	<h1><strong>商品 新規登録画面</strong></h1>
+	<h1><strong>商品 編集画面</strong></h1>
 	<div class="row" style="margin: 50px 0;">
 
 		<%= form_with(model: @product, local: true, url: admin_product_path) do |f| %>
 			<div class="col-xs-4">
 				<tr>
-					<td><%= attachment_image @product, :image, :fill, 300, 200, format: 'jpeg''jpg' %></td>
+					<td><%= attachment_image_tag @product, :image, :fill, 300, 200, format: 'jpeg''jpg' %></td>
 					<td><%= f.attachment_field :image, placeholder:"画像選択" %></td>
 				</tr>
 			</div>
