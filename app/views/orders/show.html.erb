@@ -30,17 +30,19 @@
 							  </tr>
 							  <tr>
 							    <th>ステータス</th>
-							    <td><% if @order.status == "waitmoney" %>
-							           		 入金待ち
-							            <% elsif @order.status == "moneycheck" %>
+							    <td>
+							    	   <% if @order.status == "moneycheck" %>
 							           		 入金確認
 							            <% elsif @order.status == "making" %>
 							           		 製作中
 							            <% elsif @order.status == "sentready" %>
 							           		 発送準備中
-							            <% else%>
+							           	<% elsif @order.status == "finishsenting" %>
 							           		 発送済み
-							            <% end %></td>
+							            <% else%>
+							           		 入金待ち
+							            <% end %>
+							     </td>
 							  </tr>
 
 						</table>

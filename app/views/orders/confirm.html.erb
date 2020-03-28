@@ -24,7 +24,7 @@
 									<td><%= f.product.name %>
 									<td><%= f.product.no_tax_price * 1.1 %></td>
 									<td><%= f.quantity %></td>
-									<td><%= f.product.no_tax_price * f.quantity %></td>
+									<td><%= (f.product.no_tax_price * 1.1) * f.quantity %></td>
 									<% i = i + f.product.no_tax_price * f.quantity %>
 								</tr>
 								<% end %>
