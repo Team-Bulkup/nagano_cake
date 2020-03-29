@@ -1,75 +1,58 @@
-
-<main clearfix>
-	<div class="container">
-		<div class="row">
-			<div class="col-sx-1">
+<div class="container">
+	<div class="row">
+		<div class="col-xs-offset-1 col-xs-10">
+		<h3 class="all-title">ショッピングカート</h3>
+			<div class="cart-destroy-all">
+				<%= link_to "カートをからにする", cart_items_all_path,method: :delete, class:"btn btn-danger-all" %>
 			</div>
-			<div class="col-sx-9">
-				<div class="cart-top">
-					<div class="cart-name">
-						<h3>ショッピングカート</h3>
-					</div>
-						<div class="cart-destroy-all">
-							<%= link_to "カートをからにする", cart_items_all_path,method: :delete, class:"btn btn-danger" %>
-						</div>
-					</div>
-					<div class="cart-box">
-						<table class="table">
-							<tr>
-								<th>商品名</th>
-								<th>単価（税込)</th>
-								<th>数量</th>
-								<th>小計</th>
-								<th></th>
-							</tr>
+			<!-- カート内一覧の記述	 -->
+			<table class="cart-table" border="1" style="width: 100%;" >
+				<tr bgcolor="#eee">
+					<th width="40%">商品名</th>
+					<th width="15%">単価（税込)</th>
+					<th width="15%">数量</th>
+					<th width="15%">小計</th>
+					<th width="15%"></th>
+				</tr>
 
-							<% i = 0 %>
-							<% @carts.each do |cart| %>
-							<tr>
-								<td><%= attachment_image_tag cart.product,:image, size:"100x100" %>
-								    <%= cart.product.name %></td>
-								<td><% price = (BigDecimal(cart.product.no_tax_price) * BigDecimal("1.1")).ceil %>
-										<%= converting_to_jpy(price) %>
-								</td>
+				<% i = 0 %>
+				<% @carts.each do |cart| %>
+				<tr>
+					<td><%= attachment_image_tag cart.product,:image, size:"105x65" %>
+						<%= cart.product.name %></td>
+					<td><% price = (BigDecimal(cart.product.no_tax_price) * BigDecimal("1.1")).ceil %>
+							<%= converting_to_jpy(price) %></td>
 
-								<td><%= form_with model:cart ,url:cart_item_path(cart), method: :PATCH do |f| %>
-										<%= f.number_field :quantity %>
-										<%= f.submit %>
-									<% end %>
-								</td>
-								<td><% subtotal = (BigDecimal(cart.quantity) * BigDecimal(cart.product.no_tax_price) * BigDecimal("1.1")).ceil %>
-										<%= converting_to_jpy(subtotal) %>
-								</td>
-								<td><%= link_to '削除', "/cart_items/#{cart.id}", method: :delete ,class:"btn btn-danger" %></td>
-							</tr>
+					<td margin="0 auto">
+						<%= form_with model:cart ,url:cart_item_path(cart), method: :PATCH do |f| %>
+						<%= f.number_field :quantity, style:"width: 40%;" %>
+						<%= f.submit "変更", class:"btn quantity-change" %>
+						<% end %>
+					</td>
+					<td>
+						<% subtotal = (BigDecimal(cart.quantity) * BigDecimal(cart.product.no_tax_price) * BigDecimal("1.1")).ceil %>
+						<%= converting_to_jpy(subtotal) %>
+					</td>
+					<td><%= link_to '削除', "/cart_items/#{cart.id}", method: :delete ,class:"btn btn-danger" %></td>
+				</tr>
 
-								<% i = i + (BigDecimal(cart.quantity) * BigDecimal(cart.product.no_tax_price) * BigDecimal("1.1")).ceil %>
-							<% end %>
-						</table>
-	 				</div>
-	 			</div>
+					<% i = i + (BigDecimal(cart.quantity) * BigDecimal(cart.product.no_tax_price) * BigDecimal("1.1")).ceil %>
+					<% end %>
+				</table>
 
 				<div class="cart-bottom clearfix">
-					<div class="cart-bottom-left">
-						<%= link_to "買い物を続ける", products_path ,class:"btn cart-continue" %>
-					</div>
-				<div class="cart-bottom-right clearfix">
-					<div class="total-fee-left">
-						<span>合計金額</span>
-					</div>
-					<div class="total-fee-right">
-						<span><%= converting_to_jpy(i) %></span>
-					</div>
+					<%= link_to "買い物を続ける", products_path ,class:"btn cart-continue" %>
+					<table class="total-fee-table" border="1" style="width: 30%;">
+						<tr>
+							<th bgcolor="#eee">合計金額</th>
+							<td><%= converting_to_jpy(i) %></td>
+						</tr>
+					</table>
+				</div>
+				<!-- 情報入力に進む -->
+				<div class="cart-next">
+					<%= link_to "情報入力へ進む", new_order_path ,class:"btn cart-next-btn" %>
 				</div>
 			</div>
-
-
-			<div class="create-btn">
-				<%= link_to "情報入力へ進む", new_order_path ,class:"btn cart-next-btn" %>
-			</div>
 		</div>
 	</div>
-		<div class="col-sx-2">
-		</div>
-	</div>
-</main>
