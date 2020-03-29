@@ -58,10 +58,11 @@
       <% end %>
     </div>
   </nav>
-
+<div class="container">
 <% if flash[:notice] %>
 <%= flash[:notice] %>
 <% end %>
+</div>
 
 <%= yield %>
 <% unless @path.is('admin/', 'admins/session') %>

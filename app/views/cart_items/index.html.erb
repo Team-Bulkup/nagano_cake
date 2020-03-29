@@ -3,7 +3,7 @@
 		<div class="col-xs-offset-1 col-xs-10">
 		<h3 class="all-title">ショッピングカート</h3>
 			<div class="cart-destroy-all">
-				<%= link_to "カートをからにする", cart_items_all_path,method: :delete, class:"btn btn-danger-all" %>
+				<%= link_to "カートを空にする", cart_items_all_path,method: :delete, class:"btn btn-danger-all" %>
 			</div>
 			<!-- カート内一覧の記述	 -->
 			<table class="cart-table" border="1" style="width: 100%;" >
@@ -33,7 +33,7 @@
 						<% subtotal = (BigDecimal(cart.quantity) * BigDecimal(cart.product.no_tax_price) * BigDecimal("1.1")).ceil %>
 						<%= converting_to_jpy(subtotal) %>
 					</td>
-					<td><%= link_to '削除', "/cart_items/#{cart.id}", method: :delete ,class:"btn btn-danger" %></td>
+					<td class="center"><%= link_to '削除', "/cart_items/#{cart.id}", method: :delete ,class:"btn btn-danger" %></td>
 				</tr>
 
 					<% i = i + (BigDecimal(cart.quantity) * BigDecimal(cart.product.no_tax_price) * BigDecimal("1.1")).ceil %>

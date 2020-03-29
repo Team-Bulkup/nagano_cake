@@ -7,7 +7,7 @@
 			<div clsss="col-xs-10">
 				<h3 class="index-top">注文履歴一覧</h3>
 				<div class="index-box">
-						<table width="100%" border="1">
+						<table width="100%" border="1" class="order-index-table">
 							<tr bgcolor="#eee">
 								<th>注文日</th>
 								<th>配送先</th>
@@ -41,7 +41,7 @@
 							           		 入金待ち
 							            <% end %>
 									</td>
-									<td><div class="index-btn"><%= link_to "表示する" ,order_path(f),class:"btn btn-primary" %></div></td>
+									<td class="center"><%= link_to "表示する" ,order_path(f),class:"btn btn-primary" %></td>
 								<% end %>
 							</tr>
 						</table>

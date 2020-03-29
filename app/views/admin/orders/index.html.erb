@@ -20,16 +20,16 @@
           <td><%= order.order_products.count %></td>
           <td>
              <% if order.status == "moneycheck" %>
-                             入金確認
-                          <% elsif order.status == "making" %>
-                             製作中
-                          <% elsif order.status == "sentready" %>
-                             発送準備中
-                          <% elsif order.status == "finishsenting" %>
-                             発送済み
-                          <% else%>
-                             入金待ち
-                          <% end %>
+                 入金確認
+             <% elsif order.status == "making" %>
+                 製作中
+             <% elsif order.status == "sentready" %>
+                 発送準備中
+             <% elsif order.status == "finishsenting" %>
+                 発送済み
+             <% else%>
+                 入金待ち
+             <% end %>
             </td>
         </tr>
         <% end %>
