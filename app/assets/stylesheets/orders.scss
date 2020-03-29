@@ -78,9 +78,7 @@ collection_select {
 	padding: 10px;
 }
 
-td,th{
-	padding: 10px !important;
-}
+
 
 .show-bottom-text{
 	padding-left: 0px;
@@ -95,4 +93,8 @@ td,th{
 	color: #fff;
 	width: 20%;
 	background-color: #3D8BCD;
+}
+
+.order-index-table tr{
+	height: 50px;
 }

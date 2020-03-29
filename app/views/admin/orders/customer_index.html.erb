@@ -12,23 +12,23 @@
         <% @customer.orders.each do |order| %>
         <tr>
           <td>
-            <%= link_to admin_order_product_path(order) do %>
-            <%= order.created_at %>
+            <%= link_to admin_order_path(order) do %>
+            <%= order.created_at.strftime('%Y/%m/%d %H:%M') %>
             <% end %>
           </td>
           <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
           <td><%= order.order_products.count %></td>
           <td>
-            <% if order.status == "waitmoney" %>
-            入金待ち
-            <% elsif order.status == "moneycheck" %>
-            入金確認
+            <% if order.status == "moneycheck" %>
+                 入金確認
             <% elsif order.status == "making" %>
-            製作中
+                 製作中
             <% elsif order.status == "sentready" %>
-            発送準備中
+                 発送準備中
+            <% elsif order.status == "finishsenting" %>
+                 発送済み
             <% else%>
-            発送済み
+                 入金待ち
             <% end %>
           </td>
         </tr>
