@@ -19,7 +19,7 @@
 					<% @products.each do |product| %>
 					<tr>
 						<td><%= product.id %></td>
-						<td><%= link_to product.name, edit_admin_product_path(product) %></td>
+						<td><%= link_to product.name, admin_product_path(product) %></td>
 						<td><%= converting_to_jpy(product.no_tax_price) %></td>
 						<td><%= product.category.name %></td>
 						<% if product.is_available == true %>
