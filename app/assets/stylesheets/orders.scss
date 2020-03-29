@@ -37,12 +37,8 @@
 }
 
 .index-box{
-	border:solid 2px black;
 }
 
-.index-top{
-
-}
 
 .show-top{
 	padding:0 0 30px 200px;
@@ -53,31 +49,6 @@
 	width: 100%;
 }
 
-
-.show-top-left{
-
-}
-
-.show-top-right{
-
-}
-
-
-.show-bottom{
-	margin:0 530px 0 90px;
-	border:solid 2px black;
-
-}
-
-
-
-.show-top-left{
-	border:solid 2px black;
-}
-
-.show-top-right{
-	border:solid 2px black;
-}
 
 .show-bottom-text{
 	padding-left: 90px;
@@ -105,11 +76,14 @@ collection_select {
 
 .to_address tr{
 	padding: 10px;
+=======
+td,th{
+	padding: 10px !important;
 }
 
-
-
-
+.show-bottom-text{
+	padding-left: 0px;
+}
 
 .confirm{
 	width: 100%;
@@ -121,8 +95,3 @@ collection_select {
 	width: 20%;
 	background-color: #3D8BCD;
 }
-
-
-
-
-
