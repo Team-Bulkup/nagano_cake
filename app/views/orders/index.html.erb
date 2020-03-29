@@ -25,7 +25,9 @@
 											<%= o.name %><br>
 										<% end %>
 									</td>
-									<td><%= f.charge * 1.1 %></td>
+									<td><% charge = (BigDecimal(f.charge) * BigDecimal("1.1")).ceil %>
+											<%= converting_to_jpy(charge) %>
+									</td>
 									<td>
 							            <% if f.status == "moneycheck" %>
 							           		 入金確認

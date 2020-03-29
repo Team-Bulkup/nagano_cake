@@ -54,7 +54,11 @@
 						<div class="show-top-right">
 							 <table class="table">
 								  <tr>
-								    <th>商品合計</th><td><%= (@order.charge - 800) * 1.1 %></td>
+								    <th>商品合計</th>
+								    <td>
+								    	<% total = (BigDecimal(@order.charge - 800) * BigDecimal("1.1")).ceil %>
+								    	<%= converting_to_jpy(total) %>
+								    </td>
 								  </tr>
 
 								  <tr>
@@ -62,7 +66,11 @@
 								  </tr>
 
 								  <tr>
-								    <th>ご請求額</th><td><%= @order.charge * 1.1 %></td>
+								    <th>ご請求額</th>
+								    <td>
+								    	<% charge = (BigDecimal(@order.charge) * BigDecimal("1.1")).ceil %>
+								    	<%= converting_to_jpy(charge) %>
+								    	</td>
 								  </tr>
 
 							</table>
@@ -84,9 +92,12 @@
 							<% @order.order_products.each do |f| %>
 									<tr>
 										<td><%= f.name %></td>
-										<td><%= f.price / f.quantity %></td>
+										<td><%= converting_to_jpy(f.price / f.quantity) %></td>
 										<td><%= f.quantity %></td>
-										<td><%= f.price * 1.1 %></td>
+										<td>
+											<% subtotal = (BigDecimal(f.price) * BigDecimal("1.1")).ceil %>
+											<%= converting_to_jpy(subtotal) %>
+										</td>
 									</tr>
 							<% end %>
 						</table>
