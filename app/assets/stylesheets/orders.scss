@@ -21,11 +21,6 @@
 	margin-left: 15px;
 }
 
-
-
-
-
-
 .confirm-top-left{
 	float:left;
 	border:solid 2px black;
@@ -48,9 +43,6 @@
 .index-top{
 
 }
-
-
-
 
 .show-top{
 	padding:0 0 30px 200px;
@@ -93,24 +85,16 @@
 }
 
 
+.confirm-product-table tr{
+	height: 50px;
+}
 
+.order-table{
+	border-collapse: separate;
+  border-spacing: 0px 8px;
+ }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.order-create{
+	background-color: #58B957;
+	color: white;
+}
