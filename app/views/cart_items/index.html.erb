@@ -28,18 +28,22 @@
 							<tr>
 								<td><%= attachment_image_tag cart.product,:image, size:"100x100" %>
 								    <%= cart.product.name %></td>
-								<td><%= cart.product.no_tax_price * 1.1 %></td>
+								<td><% price = (BigDecimal(cart.product.no_tax_price) * BigDecimal("1.1")).ceil %>
+										<%= converting_to_jpy(price) %>
+								</td>
 
 								<td><%= form_with model:cart ,url:cart_item_path(cart), method: :PATCH do |f| %>
 										<%= f.number_field :quantity %>
 										<%= f.submit %>
 									<% end %>
 								</td>
-								<td><%= cart.quantity * cart.product.no_tax_price * 1.1 %></td>
+								<td><% subtotal = (BigDecimal(cart.quantity) * BigDecimal(cart.product.no_tax_price) * BigDecimal("1.1")).ceil %>
+										<%= converting_to_jpy(subtotal) %>
+								</td>
 								<td><%= link_to '削除', "/cart_items/#{cart.id}", method: :delete ,class:"btn btn-danger" %></td>
 							</tr>
 
-								<% i = i + cart.quantity * cart.product.no_tax_price * 1.1 %>
+								<% i = i + (BigDecimal(cart.quantity) * BigDecimal(cart.product.no_tax_price) * BigDecimal("1.1")).ceil %>
 							<% end %>
 						</table>
 	 				</div>
@@ -54,7 +58,7 @@
 						<span>合計金額</span>
 					</div>
 					<div class="total-fee-right">
-						<span><%= i %></span>
+						<span><%= converting_to_jpy(i) %></span>
 					</div>
 				</div>
 			</div>
