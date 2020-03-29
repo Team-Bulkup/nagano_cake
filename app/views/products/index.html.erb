@@ -1,2 +1,14 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<%= render 'categories/link', categories: @categories %>
+
+		<div class="col-xs-10">
+			<div class="product-top">
+					<h1>商品一覧</h1>
+					<p>(全<%= @products.count %>件)</p>
+			</div>
+			<!-- 以下は gem "kaminari" -->
+			<%= render 'product_index', products: @products %>
+		</div>
+	</div>
+</div>

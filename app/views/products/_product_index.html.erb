@@ -1,0 +1,23 @@
+	<!-- 以下は gem "kaminari" -->
+	<% products.each do |product| %>
+	<div class="product-block">
+		<!-- 下記の記述で商品写真 -->
+		<div class="block block-image">
+			<%= link_to product_path(product.id) do %>
+			<%= attachment_image_tag product, :image, :fill, 210, 130 %>
+			<% end %>
+		</div>
+		<!-- 下記の記述で商品名 -->
+		<div class="block-name" style="padding: 10px 0;">
+			<%= product.name %>
+		</div>
+		<!-- 下記の記述で商品価格 -->
+		<div class="block-price">
+			<% price = (BigDecimal(product.no_tax_price) * BigDecimal("1.1")).ceil %>
+			¥<%= converting_to_jpy(price) %>
+		</div>
+	</div>
+	<% end %>
+	<div class="page">
+		<%= paginate products, class: "paginate" %>
+	</div>

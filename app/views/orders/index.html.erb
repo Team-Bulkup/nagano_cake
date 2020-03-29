@@ -1,2 +1,55 @@
-<h1>Orders#index</h1>
-<p>Find me in app/views/orders/index.html.erb</p>
+<div class="index-main">
+
+	<div class="container">
+		<div class="row">
+			<div clsss="col-xs-1">
+			</div>
+			<div clsss="col-xs-10">
+				<h3 class="index-top">注文履歴一覧</h3>
+				<div class="index-box">
+						<table width="100%" border="1" class="order-index-table">
+							<tr bgcolor="#eee">
+								<th>注文日</th>
+								<th>配送先</th>
+								<th>注文商品</th>
+								<th>支払金額</th>
+								<th>ステータス</th>
+								<th>注文詳細</th>
+							</tr>
+						   		<% @orders.each do |f| %>
+						   	<tr>
+									<td><%= f.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+									<td><%= f.postcode %> <%= f.address %> <%= f.name %></td>
+									<td>
+										<% f.order_products.each do |o| %>
+											<%= o.name %><br>
+										<% end %>
+									</td>
+									<td><% charge = (BigDecimal(f.charge) * BigDecimal("1.1")).ceil %>
+											<%= converting_to_jpy(charge) %>
+									</td>
+									<td>
+							            <% if f.status == "moneycheck" %>
+							           		 入金確認
+							            <% elsif f.status == "making" %>
+							           		 製作中
+							            <% elsif f.status == "sentready" %>
+							           		 発送準備中
+							           	<% elsif f.status == "finishsenting" %>
+							           		 発送済み
+							            <% else%>
+							           		 入金待ち
+							            <% end %>
+									</td>
+									<td class="center"><%= link_to "表示する" ,order_path(f),class:"btn btn-primary" %></td>
+								<% end %>
+							</tr>
+						</table>
+					</div>
+			</div>
+			<div clsss="col-xs-1">
+			</div>
+		</div>
+	</div>
+</div>
+

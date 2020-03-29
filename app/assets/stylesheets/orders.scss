@@ -1,3 +1,100 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.crearfix::after{
+	content:"";
+	display:block;
+	clear: both;
+}
+
+.new-box{
+	margin-left: 40px;
+}
+
+.new-text-field{
+	float:left;
+}
+
+.new-select-btn{
+	float:left;
+	margin-left: 15px;
+}
+
+.confirm-top-left{
+	float:left;
+	border:solid 2px black;
+}
+
+.confirm-top-right{
+	float: right;
+	border:solid 2px black;
+}
+
+
+.index-main h3{
+	padding-left: 100px;
+}
+
+.index-box{
+}
+
+
+.show-top{
+	padding:0 0 30px 200px;
+}
+
+
+.show-main{
+	width: 100%;
+}
+
+
+.show-bottom-text{
+	padding-left: 90px;
+	padding-top: 50px;
+}
+
+
+.confirm-product-table tr{
+	height: 50px;
+}
+
+.order-table{
+	border-collapse: separate;
+  border-spacing: 0px 8px;
+ }
+
+.order-create{
+	background-color: #58B957;
+	color: white;
+}
+
+collection_select {
+	width: 10px;
+}
+
+.to_address tr{
+	padding: 10px;
+}
+
+
+
+.show-bottom-text{
+	padding-left: 0px;
+}
+
+.confirm{
+	width: 100%;
+	text-align: center;
+}
+
+.confirm-next{
+	color: #fff;
+	width: 20%;
+	background-color: #3D8BCD;
+}
+
+.order-index-table tr{
+	height: 50px;
+}

@@ -24,4 +24,18 @@ class Admins::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  def after_sign_in_path_for(resource)
+    flash[:notice] = "ログインしました。"
+    admin_top_path #後にadminのtopの画面にpathするように変更。（to 仲井）
+  end
+
+  def after_sign_up_path_for(resource)
+    flash[:notice] = "新規登録しました。"
+    admin_top_path #後にadminのtopの画面にpathするように変更。（to 仲井）
+  end
+
+  def after_sign_out_path_for(resource)
+    flash[:notice] = "ログアウトしました。"
+    new_admin_session_path
+  end
 end

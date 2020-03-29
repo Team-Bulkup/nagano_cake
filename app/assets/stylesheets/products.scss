@@ -1,3 +1,59 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.categories {
+	border : 1px solid black;
+}
+
+.categories-serch {
+	text-align: center;
+	border-bottom: 1px solid black;
+	margin: 0;
+	padding: 5px 0;
+}
+
+.categories p {
+	margin: 20px 10px;
+}
+
+.product-top h1 {
+	margin-top: 0;
+}
+
+.product-block {
+	display: inline-block;
+	width: 24%;
+	margin-bottom: 30px;
+}
+
+.page {
+	text-align: center;
+}
+
+.cart-add{
+  background-color: #3D8BCD;
+  color: white;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.cart-add_form{
+  width: 200px;
+}
+
+.cart-add-quantity {
+  background-color: #3D8BCD;
+  color: white;
+  width: 200px;
+  border-radius: 10px;
+}
+
+select {
+	width: 200px;
+	height: 33px;
+}
+
+.cart-add-quantity_form{
+  width: 200px;
+}

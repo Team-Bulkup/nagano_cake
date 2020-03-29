@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+  get 'categories/show'
   # devise_for :admins
   # devise_for :users
   devise_for :admins, controllers: {
@@ -15,26 +17,33 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
 
+    get 'orders/confirm' => 'orders#confirm'
+    get 'orders/thanks' => 'orders#thanks'
+
   namespace :admin do
+    get 'top' => 'homes#top'
     resources :order_products, only: [:update]
     resources :orders, only: [:index, :show, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update] do
+      get 'orders' => 'orders#customer_index'
+    end
     resources :categories, only: [:index, :create, :edit, :update]
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
   end
 
   resources :addresses,only: [:index, :create, :destroy, :edit, :update]
-  get 'customers' => 'customer#show'
+  get 'customer' => 'customers#show'
   get 'customers/withdraw' => 'customers#withdraw'
   put 'customers/hide' => 'customers#hide'
-  get 'customers/edit' => 'customers#edit'
-  patch 'customers' =>'customers#update'
-  put 'customers' =>'customers#update'
+  get 'customers/edit_info' => 'customers#edit_info'
+  patch 'customers/update' =>'customers#update'
+  put 'customers/update' =>'customers#update'
   resources :orders, only: [:new, :create, :index, :show]
-  get 'orders/confirm' => 'orders#confirm'
-  get 'orders/thanks' => 'orders#thanks'
   resources :cart_items, only: [:index, :create, :destroy, :update]
-  delete 'cart_items' => 'cart_items#destroy_all'
+  delete 'cart_items_all' => 'cart_items#destroy_all'
   resources :products, only: [:index, :show]
+  resources :categories, only: [:index, :show] do
+    get 'products' => 'categories#index'
+  end
 
 end

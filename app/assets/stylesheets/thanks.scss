@@ -1,0 +1,32 @@
+// Place all the styles related to the thanks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.thanks-box{
+
+
+
+}
+
+.thanks-img{
+	background-image: url(tanks-message.jpg);
+	background-position: center;
+	background-size: cover;
+	height: 500px;
+	max-width: 50%;
+	margin:auto;
+
+
+}
+
+.thanks-messing{
+	color: white;
+	font-size: 30px;
+	background-color: rgba( 0, 0, 0, 0.5);
+	width: 500px;
+	padding:20px 40px;
+	margin:0 100px;
+
+
+
+}
