@@ -16,14 +16,14 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order_status = params[:order][:status]
-        @order.update(status: @order_status)
+    @order.update(status: @order_status)
 
-        if @order_status == "waitmoney"
-            @order.order_products.update(status: "impossible")
-        elsif @order_status == "moneycheck"
-            @order.order_products.update(status: "waitmake")
-        end
-        redirect_to admin_orders_path(@order)
+    if @order_status == "waitmoney"
+        @order.order_products.update(status: "impossible")
+    elsif @order_status == "moneycheck"
+        @order.order_products.update(status: "waitmake")
+    end
+    redirect_to admin_order_path(@order)
   end
   protected
   def order_params
