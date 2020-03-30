@@ -25,7 +25,7 @@
 											<%= o.name %><br>
 										<% end %>
 									</td>
-									<td><% charge = (BigDecimal(f.charge) * BigDecimal("1.1")).ceil %>
+									<td><% charge = (BigDecimal(f.charge)).ceil %>
 											<%= converting_to_jpy(charge) %>
 									</td>
 									<td>

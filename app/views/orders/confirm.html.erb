@@ -6,7 +6,7 @@
 			<table width="100%" class="confirm-product-table" border="1">
 				<tr bgcolor="#eee">
 					<th>商品名</th>
-					<th>単価（税込</th>
+					<th>単価（税込）</th>
 					<th>数量</th>
 					<th>小計</th>
 				</tr>
@@ -25,7 +25,7 @@
 						<% subtotal = (BigDecimal(f.product.no_tax_price) * BigDecimal("1.1") * BigDecimal(f.quantity)).ceil %>
 						<%= converting_to_jpy(subtotal) %>
 					</td>
-					<% i = i + (BigDecimal(f.product.no_tax_price) * BigDecimal(f.quantity)).ceil %>
+					<% i = i + (BigDecimal(f.product.no_tax_price) * BigDecimal("1.1") * BigDecimal(f.quantity)).ceil %>
 				</tr>
 				<% end %>
 			</table>
@@ -44,7 +44,7 @@
 				<tr>
 					<th>請求金額</th>
 					<td>
-						<% charge = (BigDecimal("800") + i * BigDecimal("1.1")).ceil %>
+						<% charge = (BigDecimal("800") + i).ceil %>
 						<%= converting_to_jpy(charge) %>
 					</td>
 				</tr>

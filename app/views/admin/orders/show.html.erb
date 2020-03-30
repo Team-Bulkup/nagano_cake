@@ -31,7 +31,6 @@
 
       <div class="row">
         <div class="col-xs-9">
-          <% @order_products.each do |order_product| %>
           <table class="table" width="50%">
             <tr bgcolor="#eee">
               <th>商品名</th>
@@ -41,6 +40,7 @@
               <th>製作ステータス</th>
               <th></th>
             </tr>
+          <% @order_products.each do |order_product| %>
             <tr>
               <td><%= order_product.name %></td>
               <td><%= converting_to_jpy(order_product.price) %></td>
@@ -51,8 +51,8 @@
               <td><%= f.submit "更新", class:"btn order_product-update" %></td>
               <% end %>
             </tr>
+            <% end %>
           </table>
-          <% end %>
         </div>
         <div class="col-xs-3">
           <table class="admin-order-table">
